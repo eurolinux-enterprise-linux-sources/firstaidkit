@@ -4,8 +4,8 @@
 %define debug_package %{nil}
 
 Name:           firstaidkit
-Version:        0.2.10
-Release:        4%{?dist}
+Version:        0.2.10.2
+Release:        1%{?dist}
 Summary:        System Rescue Tool
 
 Group:          Applications/System
@@ -158,8 +158,10 @@ packet.
 
 #docs
 %{__install} -d $RPM_BUILD_ROOT%{_mandir}/man1
-%{__install} -d $RPM_BUILD_ROOT%{_datadir}/doc/%name-%version
+%{__install} -d $RPM_BUILD_ROOT%{_mandir}/man5
+%{__install} -d $RPM_BUILD_ROOT%{_datadir}/doc/%{name}-%{version}
 %{__install} -p doc/firstaidkit-plugin.1 doc/firstaidkit.1 $RPM_BUILD_ROOT%{_mandir}/man1
+%{__install} -p doc/firstaidkit.conf.5 $RPM_BUILD_ROOT%{_mandir}/man5
 %{__install} -p COPYING $RPM_BUILD_ROOT%{_datadir}/doc/%name-%version/COPYING
 
 #configuration
@@ -212,6 +214,7 @@ desktop-file-install --vendor="fedora" --dir=${RPM_BUILD_ROOT}%{_datadir}/applic
 %{_bindir}/firstaidkitrevert
 %config(noreplace) %{_sysconfdir}/firstaidkit/firstaidkit.conf
 %attr(0644,root,root) %{_mandir}/man1/firstaidkit.1.gz
+%attr(0644,root,root) %{_mandir}/man5/firstaidkit.conf.5.gz
 %attr(0644,root,root) %{_datadir}/doc/%name-%version/COPYING
 %dir %{_datadir}/doc/%name-%version
 
@@ -257,6 +260,14 @@ desktop-file-install --vendor="fedora" --dir=${RPM_BUILD_ROOT}%{_datadir}/applic
 
 
 %changelog
+* Mon Jan 10 2011 Martin Sivak <msivak@redhat.com> - 0.2.10.1-2
+- Fix the manpage for the config file
+  Resolves: rhbz#584677
+
+* Fri Jan 07 2011 Martin Sivak <msivak@redhat.com> - 0.2.10.1-1
+- Add manpage for the config file
+  Resolves: rhbz#584677
+
 * Mon May 22 2010 Martin Sivak <msivak@redhat.com> - 0.2.10-4
 - Add menu icon
   Resolves: rhbz#587903

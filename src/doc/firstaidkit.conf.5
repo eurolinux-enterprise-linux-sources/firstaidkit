@@ -1,0 +1,22 @@
+.TH firstaidkit.conf 5
+.SH NAME
+firstaidkit.conf - FirstAidKit configuration file
+.SH DESCRIPTION
+This file controls the environment and execution arguments for the main plugin engine as well as for the included plugins in FirstAidKit. The most important information present in this file are the paths to plugins and frontends.
+.PP
+FirstAidKit is also able to output complete configuration used to run current task. It is then possible to save it to file and use it to start another run with the exact same arguments.
+.SH FORMAT
+This file uses the standard win .ini formatting. See the example bellow:
+.PP
+.RS 0
+[section]
+.RS 0
+key = value
+.RS 0
+long-key = "value with spaces"
+.SH FILES
+You can find the configuration file as /etc/firstaidkit/firstaidkit.conf or $HOME/.firstaidkit.conf. It is also possible to save it somewhere else, but you have to explicitly point the firstaidkit executable to it.
+.SH SEE ALSO
+Please see the configuration file in the package for complete descriptions of available sections and keys.
+.SH AUTHOR
+Martin Sivak (msivak (at) redthat (dot) com)
