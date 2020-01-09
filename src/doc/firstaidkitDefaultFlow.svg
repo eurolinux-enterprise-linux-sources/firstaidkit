@@ -1,0 +1,554 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="744.09448819"
+   height="1052.3622047"
+   id="svg2"
+   sodipodi:version="0.32"
+   inkscape:version="0.46"
+   sodipodi:docname="firstaidkitDefaultFlow.svg"
+   inkscape:output_extension="org.inkscape.output.svg.inkscape">
+  <defs
+     id="defs4">
+    <marker
+       inkscape:stockid="Arrow1Lend"
+       orient="auto"
+       refY="0.0"
+       refX="0.0"
+       id="Arrow1Lend"
+       style="overflow:visible;">
+      <path
+         id="path3829"
+         d="M 0.0,0.0 L 5.0,-5.0 L -12.5,0.0 L 5.0,5.0 L 0.0,0.0 z "
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:1.0pt;marker-start:none;"
+         transform="scale(0.8) rotate(180) translate(12.5,0)" />
+    </marker>
+    <inkscape:perspective
+       sodipodi:type="inkscape:persp3d"
+       inkscape:vp_x="0 : 526.18109 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_z="744.09448 : 526.18109 : 1"
+       inkscape:persp3d-origin="372.04724 : 350.78739 : 1"
+       id="perspective10" />
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     gridtolerance="10000"
+     guidetolerance="10"
+     objecttolerance="10"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="1.4"
+     inkscape:cx="351.75625"
+     inkscape:cy="722.58158"
+     inkscape:document-units="px"
+     inkscape:current-layer="g2510"
+     showgrid="false"
+     inkscape:window-width="1438"
+     inkscape:window-height="869"
+     inkscape:window-x="0"
+     inkscape:window-y="0" />
+  <metadata
+     id="metadata7">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <flowRoot
+       xml:space="preserve"
+       id="flowRoot2434"
+       style="fill:black;stroke:none;stroke-opacity:1;stroke-width:1px;stroke-linejoin:miter;stroke-linecap:butt;fill-opacity:1;font-family:Sans;font-style:normal;font-weight:normal;font-size:14px;-inkscape-font-specification:Sans;font-stretch:normal;font-variant:normal;text-anchor:start;text-align:start;writing-mode:lr;line-height:125%"><flowRegion
+         id="flowRegion2436"><rect
+           id="rect2438"
+           width="128.57143"
+           height="33.57143"
+           x="282.14285"
+           y="399.50504" /></flowRegion><flowPara
+         id="flowPara2440" /></flowRoot>    <g
+       id="g2490"
+       transform="translate(-97.857142,115.71429)"
+       inkscape:export-filename="/home/joel/git/firstaidkit/doc/text12942.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
+      <path
+         transform="matrix(1.4925373,0,0,0.6949152,-50.229204,24.395)"
+         d="M 208.57142,99.862183 A 23.928572,21.071428 0 1 1 160.71428,99.862183 A 23.928572,21.071428 0 1 1 208.57142,99.862183 z"
+         sodipodi:ry="21.071428"
+         sodipodi:rx="23.928572"
+         sodipodi:cy="99.862183"
+         sodipodi:cx="184.64285"
+         id="path2446"
+         style="fill:#0000ff"
+         sodipodi:type="arc" />
+      <text
+         sodipodi:linespacing="125%"
+         id="text2448"
+         y="98.076477"
+         x="195.71428"
+         style="font-size:16px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Sans;-inkscape-font-specification:Sans"
+         xml:space="preserve"><tspan
+           y="98.076477"
+           x="195.71428"
+           id="tspan2450"
+           sodipodi:role="line">Prepare</tspan></text>
+    </g>
+    <g
+       id="g2495"
+       transform="translate(-20.714286,50.714286)"
+       inkscape:export-filename="/home/joel/git/firstaidkit/doc/text12942.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
+      <path
+         transform="matrix(1.761194,0,0,0.8305085,-69.834745,77.282935)"
+         d="M 208.57142,99.862183 A 23.928572,21.071428 0 1 1 160.71428,99.862183 A 23.928572,21.071428 0 1 1 208.57142,99.862183 z"
+         sodipodi:ry="21.071428"
+         sodipodi:rx="23.928572"
+         sodipodi:cy="99.862183"
+         sodipodi:cx="184.64285"
+         id="path2405"
+         style="fill:#0000ff"
+         sodipodi:type="arc" />
+      <text
+         sodipodi:linespacing="125%"
+         id="text2452"
+         y="164.50505"
+         x="217.85715"
+         style="font-size:16px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Sans;-inkscape-font-specification:Sans"
+         xml:space="preserve"><tspan
+           y="164.50505"
+           x="217.85715"
+           id="tspan2454"
+           sodipodi:role="line">Diagnose</tspan></text>
+    </g>
+    <g
+       id="g2500"
+       transform="translate(205,-34.285714)"
+       inkscape:export-filename="/home/joel/git/firstaidkit/doc/text12942.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
+      <path
+         transform="matrix(1.4029851,0,0,0.6779661,-110.83688,236.44473)"
+         d="M 208.57142,99.862183 A 23.928572,21.071428 0 1 1 160.71428,99.862183 A 23.928572,21.071428 0 1 1 208.57142,99.862183 z"
+         sodipodi:ry="21.071428"
+         sodipodi:rx="23.928572"
+         sodipodi:cy="99.862183"
+         sodipodi:cx="184.64285"
+         id="path2397"
+         style="fill:#0000ff"
+         sodipodi:type="arc" />
+      <text
+         sodipodi:linespacing="125%"
+         id="text2456"
+         y="309.50504"
+         x="119.28572"
+         style="font-size:16px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Sans;-inkscape-font-specification:Sans"
+         xml:space="preserve"><tspan
+           y="309.50504"
+           x="119.28572"
+           id="tspan2458"
+           sodipodi:role="line">Backup</tspan></text>
+    </g>
+    <g
+       id="g2505"
+       transform="translate(141.42857,25.714286)"
+       inkscape:export-filename="/home/joel/git/firstaidkit/doc/text12942.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
+      <path
+         transform="matrix(1,0,0,0.5254237,109.64286,243.46365)"
+         d="M 208.57142,99.862183 A 23.928572,21.071428 0 1 1 160.71428,99.862183 A 23.928572,21.071428 0 1 1 208.57142,99.862183 z"
+         sodipodi:ry="21.071428"
+         sodipodi:rx="23.928572"
+         sodipodi:cy="99.862183"
+         sodipodi:cx="184.64285"
+         id="path2401"
+         style="fill:#0000ff"
+         sodipodi:type="arc" />
+      <text
+         sodipodi:linespacing="125%"
+         id="text2460"
+         y="301.64789"
+         x="283.57144"
+         style="font-size:16px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Sans;-inkscape-font-specification:Sans"
+         xml:space="preserve"><tspan
+           y="301.64789"
+           x="283.57144"
+           id="tspan2462"
+           sodipodi:role="line">Fix</tspan></text>
+    </g>
+    <g
+       id="g2510"
+       transform="translate(182.14285,107.71428)">
+      <path
+         transform="matrix(1.5223881,0,0,0.6610169,112.11621,146.35159)"
+         d="M 208.57142,99.862183 A 23.928572,21.071428 0 1 1 160.71428,99.862183 A 23.928572,21.071428 0 1 1 208.57142,99.862183 z"
+         sodipodi:ry="21.071428"
+         sodipodi:rx="23.928572"
+         sodipodi:cy="99.862183"
+         sodipodi:cx="184.64285"
+         id="path2407"
+         style="fill:#0000ff"
+         sodipodi:type="arc"
+         inkscape:export-filename="/home/joel/git/firstaidkit/doc/text12942.png"
+         inkscape:export-xdpi="90"
+         inkscape:export-ydpi="90" />
+      <text
+         sodipodi:linespacing="125%"
+         id="text2464"
+         y="218.07646"
+         x="361.42859"
+         style="font-size:16px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Sans;-inkscape-font-specification:Sans"
+         xml:space="preserve"
+         inkscape:export-filename="/home/joel/git/firstaidkit/doc/text12942.png"
+         inkscape:export-xdpi="90"
+         inkscape:export-ydpi="90"><tspan
+           y="218.07646"
+           x="361.42859"
+           id="tspan2466"
+           sodipodi:role="line">Restore</tspan></text>
+    </g>
+    <g
+       id="g2515"
+       transform="translate(65.714286,82)"
+       inkscape:export-filename="/home/joel/git/firstaidkit/doc/text12942.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
+      <path
+         transform="matrix(1.1492537,0,0,0.6779661,319.94136,60.01615)"
+         d="M 208.57142,99.862183 A 23.928572,21.071428 0 1 1 160.71428,99.862183 A 23.928572,21.071428 0 1 1 208.57142,99.862183 z"
+         sodipodi:ry="21.071428"
+         sodipodi:rx="23.928572"
+         sodipodi:cy="99.862183"
+         sodipodi:cx="184.64285"
+         id="path2403"
+         style="fill:#0000ff"
+         sodipodi:type="arc" />
+      <text
+         sodipodi:linespacing="125%"
+         id="text2468"
+         y="132.36218"
+         x="509.28571"
+         style="font-size:16px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Sans;-inkscape-font-specification:Sans"
+         xml:space="preserve"><tspan
+           y="132.36218"
+           x="509.28571"
+           id="tspan2470"
+           sodipodi:role="line">Clean</tspan></text>
+    </g>
+    <g
+       id="g2480"
+       transform="translate(-53.571428,10)"
+       inkscape:export-filename="/home/joel/git/firstaidkit/doc/text12942.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
+      <path
+         transform="matrix(1.3060282,0,0,0.7707371,-19.496065,74.559855)"
+         d="M 105.71429,161.6479 A 17.5,17.142857 0 1 1 70.714287,161.6479 A 17.5,17.142857 0 1 1 105.71429,161.6479 z"
+         sodipodi:ry="17.142857"
+         sodipodi:rx="17.5"
+         sodipodi:cy="161.6479"
+         sodipodi:cx="88.214287"
+         id="path2383"
+         style="fill:#ff0000;fill-rule:evenodd;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         sodipodi:type="arc" />
+      <text
+         sodipodi:linespacing="125%"
+         id="text2472"
+         y="205.21931"
+         x="75.000015"
+         style="font-size:16px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Sans;-inkscape-font-specification:Sans"
+         xml:space="preserve"><tspan
+           y="205.21931"
+           x="75.000015"
+           id="tspan2474"
+           sodipodi:role="line">Start</tspan></text>
+    </g>
+    <g
+       id="g2485"
+       transform="translate(0,14)"
+       inkscape:export-filename="/home/joel/git/firstaidkit/doc/text12942.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
+      <path
+         transform="translate(590.35715,34.285707)"
+         d="M 105.71429,161.6479 A 17.5,17.142857 0 1 1 70.714287,161.6479 A 17.5,17.142857 0 1 1 105.71429,161.6479 z"
+         sodipodi:ry="17.142857"
+         sodipodi:rx="17.5"
+         sodipodi:cy="161.6479"
+         sodipodi:cx="88.214287"
+         id="path2387"
+         style="fill:#ff0000;fill-rule:evenodd;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         sodipodi:type="arc" />
+      <text
+         sodipodi:linespacing="125%"
+         id="text2476"
+         y="202.36218"
+         x="663.57141"
+         style="font-size:16px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Sans;-inkscape-font-specification:Sans"
+         xml:space="preserve"><tspan
+           y="202.36218"
+           x="663.57141"
+           id="tspan2478"
+           sodipodi:role="line">End</tspan></text>
+    </g>
+    <path
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-start:none;marker-mid:none;marker-end:url(#Arrow1Lend)"
+       d="M 65.499995,209.24562 L 91.785713,209.3556"
+       id="path2526"
+       inkscape:connector-type="polyline"
+       inkscape:connection-start="#g2480"
+       inkscape:connection-end="#g2490"
+       inkscape:export-filename="/home/joel/git/firstaidkit/doc/text12942.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-mid:none;marker-end:url(#Arrow1Lend)"
+       d="M 163.21428,209.98123 L 192.5,210.37171"
+       id="path2528"
+       inkscape:connector-type="polyline"
+       inkscape:connection-start="#g2490"
+       inkscape:connection-end="#g2495"
+       inkscape:export-filename="/home/joel/git/firstaidkit/doc/text12942.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;marker-end:url(#Arrow1Lend);stroke-opacity:1"
+       d="M 269.85497,228.43361 L 324.4697,255.57648"
+       id="path2530"
+       inkscape:connector-type="polyline"
+       inkscape:connection-start="#g2495"
+       inkscape:connection-end="#g2500"
+       inkscape:export-filename="/home/joel/git/firstaidkit/doc/text12942.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="opacity:1;fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;marker-end:url(#Arrow1Lend);stroke-opacity:1"
+       d="M 386.78572,261.60901 L 570.35713,216.47991"
+       id="path2532"
+       inkscape:connector-type="polyline"
+       inkscape:connection-start="#g2500"
+       inkscape:connection-end="#g2515"
+       inkscape:export-filename="/home/joel/git/firstaidkit/doc/text12942.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;marker-end:url(#Arrow1Lend);stroke-opacity:1"
+       d="M 375.97291,284.1479 L 418.07635,310.57647"
+       id="path2534"
+       inkscape:connector-type="polyline"
+       inkscape:connection-start="#g2500"
+       inkscape:connection-end="#g2505"
+       inkscape:export-filename="/home/joel/git/firstaidkit/doc/text12942.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;marker-end:url(#Arrow1Lend);stroke-opacity:1"
+       d="M 459.64285,321.37862 L 538.92857,320.4864"
+       id="path2536"
+       inkscape:connector-type="polyline"
+       inkscape:connection-start="#g2505"
+       inkscape:connection-end="#g2510"
+       inkscape:export-filename="/home/joel/git/firstaidkit/doc/text12942.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;marker-end:url(#Arrow1Lend);stroke-opacity:1"
+       d="M 451.75266,310.57647 L 577.16244,224.00504"
+       id="path2538"
+       inkscape:connector-type="polyline"
+       inkscape:connection-start="#g2505"
+       inkscape:connection-end="#g2515"
+       inkscape:export-filename="/home/joel/git/firstaidkit/doc/text12942.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;marker-end:url(#Arrow1Lend);stroke-opacity:1"
+       d="M 578.19695,306.14789 L 594.94451,224.00504"
+       id="path2540"
+       inkscape:connector-type="polyline"
+       inkscape:connection-start="#g2510"
+       inkscape:connection-end="#g2515"
+       inkscape:export-filename="/home/joel/git/firstaidkit/doc/text12942.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;marker-mid:none;marker-end:url(#Arrow1Lend);stroke-opacity:1"
+       d="M 625.35713,209.79233 L 660.57144,209.88582"
+       id="path11034"
+       inkscape:connector-type="polyline"
+       inkscape:connection-start="#g2515"
+       inkscape:connection-end="#g2485"
+       inkscape:export-filename="/home/joel/git/firstaidkit/doc/text12942.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;marker-end:url(#Arrow1Lend);stroke-opacity:1"
+       d="M 276.78571,210.79272 L 570.35713,209.81126"
+       id="path12072"
+       inkscape:connector-type="polyline"
+       inkscape:connection-start="#g2495"
+       inkscape:connection-end="#g2515"
+       inkscape:export-filename="/home/joel/git/firstaidkit/doc/text12942.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <text
+       xml:space="preserve"
+       style="font-size:16px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Sans;-inkscape-font-specification:Sans"
+       x="278.57141"
+       y="205.21931"
+       id="text12589"
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="/home/joel/git/firstaidkit/doc/text12942.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90"><tspan
+         sodipodi:role="line"
+         id="tspan12591"
+         x="278.57141"
+         y="205.21931">1.</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:16px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Sans;-inkscape-font-specification:Sans"
+       x="277.14285"
+       y="230.93359"
+       id="text12593"
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="/home/joel/git/firstaidkit/doc/text12942.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90"><tspan
+         sodipodi:role="line"
+         id="tspan12595"
+         x="277.14285"
+         y="230.93359">2.</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:16px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Sans;-inkscape-font-specification:Sans"
+       x="384.28574"
+       y="255.93361"
+       id="text12597"
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="/home/joel/git/firstaidkit/doc/text12942.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90"><tspan
+         sodipodi:role="line"
+         id="tspan12599"
+         x="384.28574"
+         y="255.93361">3.</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:16px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Sans;-inkscape-font-specification:Sans"
+       x="385.71429"
+       y="288.07648"
+       id="text12601"
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="/home/joel/git/firstaidkit/doc/text12942.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90"><tspan
+         sodipodi:role="line"
+         id="tspan12603"
+         x="385.71429"
+         y="288.07648">4.</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:16px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Sans;-inkscape-font-specification:Sans"
+       x="447.14285"
+       y="302.36218"
+       id="text12605"
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="/home/joel/git/firstaidkit/doc/text12942.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90"><tspan
+         sodipodi:role="line"
+         id="tspan12607"
+         x="447.14285"
+         y="302.36218">5.</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:16px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Sans;-inkscape-font-specification:Sans"
+       x="285"
+       y="383.07648"
+       id="text12609"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan12611" /></text>
+    <text
+       xml:space="preserve"
+       style="font-size:16px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Sans;-inkscape-font-specification:Sans"
+       x="472.85715"
+       y="315.93362"
+       id="text12617"
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="/home/joel/git/firstaidkit/doc/text12942.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90"><tspan
+         sodipodi:role="line"
+         id="tspan12619"
+         x="472.85715"
+         y="315.93362">6.</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:16px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Sans;-inkscape-font-specification:Sans"
+       x="581.42859"
+       y="303.07645"
+       id="text12621"
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="/home/joel/git/firstaidkit/doc/text12942.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90"><tspan
+         sodipodi:role="line"
+         id="tspan12623"
+         x="581.42859"
+         y="303.07645">7.</tspan></text>
+    <flowRoot
+       xml:space="preserve"
+       id="flowRoot12625"
+       style="font-size:16px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Sans;-inkscape-font-specification:Sans;opacity:0.59591837000000003;"
+       inkscape:export-filename="/home/joel/git/firstaidkit/doc/text12942.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90"><flowRegion
+         id="flowRegion12627"><rect
+           id="rect12629"
+           width="359.99997"
+           height="144.28571"
+           x="29.285715"
+           y="244.50504"
+           style="fill:#000000;fill-opacity:1;stroke:none;stroke-opacity:1" /></flowRegion><flowPara
+         id="flowPara12631">1. If everything is alright</flowPara><flowPara
+         id="flowPara12633">2. If system behavior is NOT correct</flowPara><flowPara
+         id="flowPara12635">3. If the backup was unsuccessful</flowPara><flowPara
+         id="flowPara12637">4. If backup was successful</flowPara><flowPara
+         id="flowPara12639">5. If fix was successful</flowPara><flowPara
+         id="flowPara12645">6. If fix was unsuccessful</flowPara><flowPara
+         id="flowPara12652">7. If recovery was successful or unsuccessful</flowPara></flowRoot>    <text
+       xml:space="preserve"
+       style="font-size:16px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Sans;-inkscape-font-specification:Sans"
+       x="24.285713"
+       y="170.21931"
+       id="text12942"
+       sodipodi:linespacing="125%"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90"><tspan
+         sodipodi:role="line"
+         id="tspan12944"
+         x="24.285713"
+         y="170.21931">Default First Aid Kit Plugin Flow.</tspan></text>
+  </g>
+</svg>

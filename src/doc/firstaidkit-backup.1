@@ -1,0 +1,104 @@
+.TH "FirstAidKit Backup system" "1" 
+.SH "NAME" firstaidkit-backup
+.BR
+.SH "DESCRIPTION"
+
+To abstract the plugin developer from lowlevel backup logic, the
+plugins utilize backup object named self._backups. Developer can use
+it to backup and restore files and arbitrary chunks of data.
+
+The backup system si also thread safe and ensures integrity of the backups,
+so the developer does not have to care about locks and synchronization.
+
+.SH "Requesting a backup storage space"
+
+Every plugin has access to self._backups attribute, which is the reference
+to master backup system instance. Using this attribute to obtain dedicated
+backup space for the plugin is easy. Just type:
+
+self.mybackupspace = self._backups.getBackup(someuniquename)
+
+After all work is done, free the storage space using:
+
+self._backups.getBackup.closeBackup(someuniquename)
+
+.SH "Using the backup space instance"
+
+The instance of backup space then gives the plugin access to several methods:
+
+.IP "backupPath(self, path, name = None)"
+Copy the file or directory specified by path do the backup storage and give it the specified name.
+The name equals to the path by default.
+
+.IP "backupValue(self, value, name)"
+This method makes possible to save arbitrary chunk of data under specified name.
+
+.IP "restoreName(self, name, path = None)"
+Restore backup object specified by it's name to it's original location or to the path if specified.
+
+.IP "restorePath(self, path, name = None)"
+Restore backup object which resided at specified path to it's own original location. If the name is specified,
+use the object with that name and restore it to the path.
+
+.IP "restoreValue(self, name)"
+Get the data saved under the name from backup storage.
+
+.IP "delete(self, name)"
+Delete backup object with specified name.
+
+.IP "cleanup(self)"
+Cleanup the backup storage space. You shouldn't use this method, the backup system takes care about it.
+
+.SH "Persistent backup storage space"
+The idea to have a backup space is to use it when the plugin is running or to
+have it when firstaidkit has an unrecoverable error and must bail.  But when
+all went well, firstaidkit deleted all the backups.  The question arose of what
+to do when the user wanted to revert the changes to whatever the plugins had
+done to the system.  This had to be possible, specially with plugins like grub
+that have the potential of making the system unbootable.  The answer to this
+question came in the form of the persistent backups.
+
+.IP "Specifying persistent storage"
+
+A persistent backup will not be deleted at the end of the plugin execution.
+It will persiste in the storage directory untill the user decides to delte
+it.  Firstaidkit will tell the user the dir name when it ends execution.
+To use a persistent the developer must specify when calling the backup space
+that it must be persistent.  This is done by passing persistent=True when
+creating the object.
+
+.IP "Naming persistent storage"
+For the revert feature to work the backup directory must be named in a
+unique form.  This is necesarry to correctly identify the backup dir related to
+the plugin when doing a revert.  You can use the plugin module name for this.
+Not the complete module name, because the preceding submodules before the
+actuall plugin module name might change between pytho virtual machine calls.
+To accomplish this, pass "self.__module__.split('.')[-1:][0]" as the first
+argument of getBackup() call.
+
+If you think that the latter is a little bit too much black magic for you,
+you can also name the backup storage with a string of your preference.  But
+you must implement a function called getBackupId().  This function will return
+the name that you gave the persistent backup storage.  In other words, this
+will return whatever you passed to getBackup()
+
+.IP "Additional info"
+For the persistent backup storage to be used, the developer must add a revert
+function to the plugin.  This is the function that will be called when the
+persistent backup storage is used.
+
+.PP
+
+.SH "Developing another backup storage backend"
+
+.SH "SEE ALSO"
+firstaidkit-plugin
+firstaidkit-reporting
+http://fedorahosted.org/firstaidkit
+
+.SH "AUTHORS"
+Martin Sivak <msivak@redhat.com>
+Joel Granados <jgranado@redhat.com>
+
+.SH "BUGS"
+Please search/report bugs at http://fedorahosted.org/firstaidkit/newticket

@@ -1,0 +1,100 @@
+.TH "FirstAidKit Reporting" "1" 
+.SH "NAME" firstaidkit-reporting
+.BR
+.SH "DESCRIPTION"
+
+To abstract the plugin developer from logfile and GUI related stuff, the
+plugins utilize reporting object named self._reporting. Developer can use
+it to send messages to whatever frontend the user is using.
+
+The reporting system si also thread safe, so the developer does not have
+to care about locks and synchronization.
+
+.SH "Basic concepts"
+
+.IP "Origin"
+Reference to instance of the message sender. It is mandatory, that the sender
+supports reporting.Origin interface (reading the origin.name attribute).
+But it is possible to return only simple object which supports the attribute, but
+holds no other information.
+
+.IP "Semantics"
+Typeof the message - notice, alert, progress, issue, ... More in the next chapter.
+
+.IP "Level"
+Which level of the FirstAidKit system this message belongs to.
+LEvels are specified in reporting module and we have those levels right now:
+
+FIRSTAIDKIT, TASKER, PLUGINSYSTEM, PLUGIN, FLOW, TASK
+
+.IP "Message"
+This field holds the information data in format specified by semantics.
+
+.IP "Importance"
+Importance specified by loggin levels. For more information see the python module logging.
+.PP
+
+.SH "Message types"
+
+Most of the types have their own shortcut method in the self._reporting object.
+FirstAidKit recognises following message types (semantics):
+
+.IP "START"
+Message field is not used. This message reports start event of something. (specified by level and origin)
+.IP "STOP"
+Counterpart for the START message
+.IP "PROGRESS"
+This message reports change in some progress. The message field holds tuple in the form of (step,numberofsteps).
+.IP "INFO"
+Simple text message.
+.IP "ALERT"
+Text message to be shown VERY visible. The importance field is almost ignored.
+.IP "EXCEPTION"
+Report some coding/process error during operations. The message field holds the exception instance.
+.IP "TABLE"
+The message field hold arbitrary table-like organized iterable (eg. same number of columns in all rows)
+.IP "TREE"
+This message type denoted arbitrary nested iterable organized as tree
+.IP "ISSUE"
+If any Issue-like object changed state and the plugin want to present user with update on it's state, use this
+message. It's message field holds the reference to the Issue object in question.
+.IP "QUESTION"
+We do not support the interactive mode at the moment, but this message will allow you to ask the user some questions.
+.IP "END"
+End of operations, final message which shuts down all subsystems. It is send by the Tasker and you must not use it manually.
+.PP
+
+.SH "Issues and Results reporting"
+
+When using ISSUE type of message, the message holds reference to the Issue instance,
+which changed state. Issues are not mandatory, but all the default interfaces use them as
+a tool to report the state of operations to user.
+
+The issue classes are defined in issue object. The SimpleIssue class has five fields, which
+define it's state and semantics:
+
+name and description hold the information about, what could happen.
+
+_checked, _happened and _fixed are True/False variables which hold the information whether
+the issue has been investigated, found as happening and fixed (to state, when it is not happening).
+
+There is also Issue class, which is more advanced and provides API for the IssuesPlugin.
+You shouldn't touch the internal flags of the Issue object from plugin. Instead create a derivative class,
+implement the detect and fix methods and register the Issue to some IssuesPlugin.
+
+.SH "Developing another frontend"
+
+.IP "Two ways of hooking the frontend into the FirstAidKit"
+.PP
+
+.SH "SEE ALSO"
+firstaidkit-plugin
+firstaidkit-backup
+http://fedorahosted.org/firstaidkit
+
+.SH "AUTHORS"
+Martin Sivak <msivak@redhat.com>
+Joel Granados <jgranado@redhat.com>
+
+.SH "BUGS"
+Please search/report bugs at http://fedorahosted.org/firstaidkit/newticket

@@ -1,0 +1,87 @@
+.TH "FirstAidKit Flags" "1" 
+.SH "NAME" firstaidkit-flags
+.BR
+.SH "DESCRIPTION"
+This man page tries to describe the flags that must be used to creat plugins for firstaidkit
+It describes all flags you can use as dependencies in plugins.
+The general structure of flag name is category_subsystem_part_lowerpart_...
+For every level of the hierarchy should exist FlagTrackerPlugin which will set the master flags, when everything is OK.
+
+.IP "experimental"
+Flag denoting plugin as experimental and not to be run except in testing environment and by advanced users.
+Do not provide in any plugin! Dependency flag only!
+
+.IP "unsafe"
+This plugin works, but can cause damage when the planets are badly aligned. Run only if you know what are you doing.
+Do not providein any plugin! Dependency flag only!
+
+.IP "root"
+This plugin has to run in root environment. Dependency flag only!
+
+.IP "arch-x86"
+I'm running on x86 machine. Dependency flag only!  There may be set also the subtype flags: arch-i?86, arch-x86_64
+
+.IP "arch-ppc"
+I'm running on ppc machine. Dependency flag only!  There may be set also the subtype flags: arch-ppc64
+
+.IP "arch-s390"
+I'm running on ppc machine. Dependency flag only!  There may be set also the subtype flags: arch-s390x
+
+.IP "storage"
+All storage related tests ran with Not applicable or OK results
+
+.IP "storage_lvm"
+LVM is present and OK
+
+.IP "storage_md"
+MD is present and OK
+
+.IP "storage_<filesystem name>"
+All filesystems of this type are OK
+
+.IP "storage_layout"
+Direstory structure of installed box is OK
+
+.IP "boot"
+All tests for bootable box ran with Not applicable or OK results
+
+.IP "boot_grub"
+.IP "boot_lilo"
+Bootloader is present and OK
+
+.IP "boot_kernel"
+.IP "boot_initrd"
+The booting kernel/initrd pair is present and OK
+
+.IP "boot_kernel_modules"
+All checked modules are present and OK
+
+.IP "boot_kernel_modules_<modulename>"
+Module is present and supposed to work
+
+.IP "network"
+All network related tests ran with Not applicable or OK results
+
+.IP "network_link"
+.IP "network_hostname"
+.IP "network_hosts"
+.IP "network_dhcp"
+.IP "network_dns"
+.IP "network_firewall"
+Part of network configuration was checked and appears OK
+
+.IP "rpm"
+.IP "rpm_consistent"
+RPM database is in OK state and contains the right information
+.IP "rpm_lowlevel"
+RPM database has all required files and databases working
+
+.SH "SEE ALSO"
+http://fedorahosted.org/firstaidkit
+
+.SH "AUTHORS"
+Martin Sivak <msivak@redhat.com>
+Joel Granados <jgranado@redhat.com>
+
+.SH "BUGS"
+Please search/report bugs at http://fedorahosted.org/firstaidkit/newticket

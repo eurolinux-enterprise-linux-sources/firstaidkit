@@ -1,0 +1,53 @@
+#!/usr/bin/python -tt
+# First Aid Kit - diagnostic and repair tool for Linux
+# Copyright (C) 2008 Joel Granados <jgranado@redhat.com>
+#
+# This program is free software; you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation; either version 2 of the License, or
+# (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program; if not, write to the Free Software
+# Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
+
+import unittest, imp, sys
+from testsuite import modnames
+testloader = unittest.defaultTestLoader
+
+testsuitedir = "testsuite"
+flawless = True
+
+for modname in modnames:
+    modinfo = imp.find_module(modname, [testsuitedir])
+    modfile = open(modinfo[1], 'r')
+    modload = imp.load_module(modname, modfile, modinfo[1], modinfo[2])
+
+    result = unittest.TestResult()
+    suite = testloader.loadTestsFromModule(modload)
+    suite.run(result)
+    if len(result.failures) == 0 and len(result.errors) == 0:
+        # Nothing to worry about
+        continue
+    else:
+        flawless = False
+        if len(result.failures) > 0:
+            print("-"*20 + " Failures " + "-"*20)
+            for failure in result.failures:
+                print("\n%s" % failure[1])
+                print("-"*50)
+        if len(result.errors) > 0:
+            print "-"*20 + " Errors " + "-"*20
+            for error in result.errors:
+                print("\n%s" % error[1])
+                print("-"*48)
+
+if flawless:
+    sys.exit(0)
+else:
+    sys.exit(1)

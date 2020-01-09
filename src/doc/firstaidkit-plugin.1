@@ -1,0 +1,219 @@
+.TH "FirstAidKit Plugins" "1" 
+.SH "NAME" firstaidkit-plugins
+.BR
+.SH "DESCRIPTION"
+This man page tries to describe the inner workings of the plugin system for FirstAidKit. 
+It also contains useful information to develop a plugin for firstaidkit.
+
+.SH "Plugin Suffixes"
+All plugins belong to configured plugin directory. Recognized suffixes are: .py, .pyc, 
+.pyo (python modules) and .so (python compatible binary module).  The plugins should be 
+placed in a default location (/usr/{lib,lib64}/firstaidkit-plugins).
+.\"Should mention the /etc/firstaidkit.conf file.  Should include multiple plugin source dirs.\"
+
+.SH "Plugin Model"
+The building blocks of the plugins are functions and flows.  A function is a certain action 
+that is taken inside the plugin.  This action is more or less independent from the rest of 
+the plugin actions.  Things like fix, backup, restore... qualify as actions/functions.  
+This does not mean that functions do not relate to each other.  They are related by using 
+the flow data structure (The data structure used for the flows is a dictionary).
+
+A flow is the organization of functions in a directional graph that defines the "flow" of 
+functions.  Understand flow here as the order in which functions are executed when the 
+plugin is used.  This order/flow is specified using the function names, their return codes 
+and the flow data structure.  All this is contained within a dictionary (The Examples Sections 
+shows how this is done.)
+
+.SH "Coding a Plugin"
+.IP "1. Class methods and class attributes:"
+The main plugin class has some class methods and some class attributes. These elements are 
+used to describe the plugin and are used without actually using a instance of the plugin.  
+This is important because we do not want to execute the __init__ function and cause lots of 
+unnecessary  stuff to go into memory when we are querying for plugin basic information.
+
+The class attributes are: name, version, author and the defined flows.  For the information
+to be displayed correctly to the user the plugin developer must include at least name, version
+and author as class attributes.  The flows attribute is not necesarry if custom flows aren't
+present.  If the plugin developer is planning to create a custom flows he must declare the flows 
+dictionary for your plugin.  More information of the class attributes in the "Class Attribute"
+section.
+
+The class methods are: info() (returns the name, version and author  in a tuple), getDeps() 
+(returns list of required flags for automated mode) and getFlows() (returns a list of possible 
+flow names that the plugin can execute).  The plugin developer doesn't really have to worry
+about the methods as they are defined in the father class Plugin.  Section "Class Methods"
+gives more infor on each one.
+
+.IP "2. Plugin dependencies"
+You can also specify flags, which are required to be satisfied before the automated mode can 
+use this plugin. The requirements should be returned as python set of strings by the getDeps() 
+class method.  Setting flags is also easy. Just use the provide() method common to all plugins.
+
+There is also getConflicts() method, with the very same behaviour as getDeps(), but with the
+opposite meaning. Meaning, it is a set of flags, which have to NOT be satisfied for the plugin
+to be processed.
+
+.IP "3. Default functions:"
+See section "Common stuff for plugins"
+
+.IP "4. Flows:"
+There are two basic flows hardcoded into the system. These flows may *not* be used by plugin
+developers.  The first flow is called diagnose: the intention with this flow is to give the
+user information of the state of the system that the plugin is analysing.  This flow is
+intended to give general information and needs to be very fast.  If the plugin needs to do
+some more detailed diagnose analysis, we suggest to create another flow called 'detailedAnalysis'.
+When coding the diagnose flow, remember that it will be executed when the user asks for the
+information of *all* the plugins.  The diagnose flow calls only the prepare, diagnose and clean tasks.
+The second flow is called fix:  the intention with this flow is to actually fix whatever 
+is wrong with the system.  We suggest this flow to be as thorough as it needs to be.  If there
+is more than one way to fix the problem, this flow would be the easiest one (the plugin
+developer can create other flow for the more complex ones).  For this flow to be successfull
+the prepare, diagnose, backup, fix, restore and clean tasks must be present in the plugin.  
+for more info see section "Common stuff for plugins".  Finally, to add a custom flow the
+plugin developer must initialize a dictionary named flows using flows = Flow.init(parent class)
+and fill it with the custom flows.  For more info on adding flows see the "Examples" section.
+
+.IP "5. self._result and self._state
+These are the two variables that define the location of the plugin inside the flow dictionary.  
+In each function, after it has done its intended action, the self._result variable must be 
+changed to a correct value.  Think of the self._result as the return value of each task.  Before
+any task is executed, the self._result is set to None, so we can handle exceptions as special
+direction in flows. The self._result usually takes a firstaidkit return value (classes that
+define the return value).
+
+Firstaidkit comes with predifined return value classes but the plugin developer may define his
+own return classes.  One reason to define a custom return class is to have actual values be
+passed between tasks (this is not yet implemented as the tasks are in the same class and can interchange
+values using the class variable).  The self._state is the name of the task where the plugin is
+at a certain moment.  The self._state variable is of no real use to the plugin developer as he
+must know in what task the plugin is in.
+
+.IP "6. get_plugin()"
+Each plugin must define a get_plugin function.  This function must return the main class of the 
+plugin.  This is used to take out info from the plugin, and to instantiate it.  If in doubt, take a 
+look at the sample plugins that come with the man FirstAidKit code base. They can give you a pretty 
+good idea of what to do when using a  module, file ...
+
+.IP "7. return values:"
+For each function you code in a plugin you must use predefined return classes.  It is necessary to 
+have the extra wrapper because the python native types can get messy (1==True).  Just use the ones 
+provided by  the plugin system, or create your own.
+
+.SH "Common stuff"
+Each plugin, by default, should exports some steps. The mandatory ones are:
+.IP "prepare" 
+Initialize plugin, get environment.
+.IP "backup" 
+Backup everything we could touch in this plugin. (Also see the firstaidkit-backup manpage)
+.IP "diagnose"
+Get info about the investigated system and determine where the problems are.
+.IP "fix" 
+Auto fix the errors from diagnose step.
+.IP "restore" 
+Restore system from backup.
+.IP "clean" 
+Destroy the plugin, cleanup.
+.PP
+The plugin should ensure that the calling order is correct
+and the system cannot end in some indeterminate state.
+
+.SH "Python Modules:"
+A plugin for the FirstAidKit must inherit from the pyfirstaidkit.Plugin class. It must also implement 
+the mandatory plugin steps.  The pyfirstaidkit.Plugin parent will provide a default flow that will use 
+the functions defined by the plugin developer.  Moreover, for the mandatory steps, the plugin developer 
+must guarantee that the function will return a valid return  class (see "Return Values section").  
+In other words, the function must return one of the possible return classes included in the default 
+flow.  Each plugin must have the get_plugin method in order to actually be seen by the firstaidkit
+backend.
+
+.SH "Class Attributes:"
+This is how the diagnose and fix flows are coded in the backend plugin system.
+ flows["diagnose"] = Flow({
+   initial      : {Return: "prepare"},
+   "prepare"    : {ReturnSuccess: "diagnose", None: "clean"},
+   "diagnose"   : {ReturnSuccess: "clean", ReturnFailure: "clean", None: "clean"},
+   "clean"      : {ReturnSuccess: final, ReturnFailure: final, None: final}
+   }, description="The default, fully automated, diagnose sequence")
+
+ flows["fix"] = Flow({
+   initial      : {Return: "prepare"},
+   "prepare"    : {ReturnSuccess: "diagnose", None: "clean"},
+   "diagnose"   : {ReturnSuccess: "clean", ReturnFailure: "backup", None: "clean"},
+   "backup"     : {ReturnSuccess: "fix", ReturnFailure: "clean", None: "clean"},
+   "fix"        : {ReturnSuccess: "clean", ReturnFailure: "restore", None: "restore"},
+   "restore"    : {ReturnSuccess: "clean", ReturnFailure: "clean", None: "clean"},
+   "clean"      : {ReturnSuccess: final, ReturnFailure: final, None: final}
+   }, description="The default, fully automated, fixing sequence")
+
+Other important class attributes are: name, version, author and description.  They are selfexplanatory.
+
+
+.SH "Class Methods:"
+pyfirstaidkit.Plugin defines:
+.IP "nextstep()" 
+This is used to return the next function that should be executed.  __iter__() is not used because there 
+is no control over __iter__() in an iteration.  nextstep() allows us execution of the flow without the 
+need for an iteration.  However the iteration is present in the class and can be used accordingly.
+.IP "__iter__() and next()" 
+Iterator protocol, works in the same way as nextstep() but end with StopIteration exception
+.IP "actions()" 
+Returns list of available step names
+.IP "call(step)" 
+Calls one specific step identified by name
+.IP "info()" 
+Returns tuple of strings defined as (name of plugin, version, author)
+.IP "changeFlow()" 
+Allows the caller to change to some other flow defined in the plugin.
+.IP "getFlows()"
+Returns all the possible flows that the plugin supports. And of course the steps itself. They are 
+defined as methods with the same names as used in actions().
+.IP "getDeps()"
+Returns list of flags which are required for this plugin to operate in automated mode.
+.IP "provide(flag)"
+Adds flag into the pool of satisfied flags.
+.IP "require(flag)"
+Queries the state of flag. Returns True if set, False otherwise.
+
+.SH "Arbitrary Executable Modules"
+The current approach is to create a wrapper python plugin, which holds the meta data
+and calls the binaries as necessary (see the examples).
+
+.SH "Examples"
+.IP "Flow description (Example 1):"
+Consider the following flow and its dictionary:
+    start->fix->end
+    dict = { start:fix, 
+             fix:end
+           }
+
+.IP "Flow description (Example 2):"
+Consider the following flow and its dictionary:
+                   ,>end
+    start->diagnose
+                   `>fix->end
+    dict = { start:diagnose, 
+             diagnose:{"goodSys":end,"badSys":fix}, 
+             fix:end 
+           }
+
+This flow has a conditional after the diagnose function.  If diagnose results in a corrupt 
+state of the system, then the plugin proceeds  with fix.  If all is good in the system, then 
+the flow end.  Note that the next step in the diagnose case is defined buy whatever diagnose 
+returned.
+
+.IP "Adding a flow (Example 3):"
+class MyPlugin(Plugin):
+    flows = Flow.init(Plugin)
+    flows["myflow"] = Flow({flow rules}, description="")
+
+.SH "SEE ALSO"
+firstaidkit-reporting manpage
+firstaidkit-backup manpage
+http://fedorahosted.org/firstaidkit
+
+.SH "AUTHORS"
+Martin Sivak <msivak@redhat.com>
+Joel Granados <jgranado@redhat.com>
+
+.SH "BUGS"
+Please search/report bugs at http://fedorahosted.org/firstaidkit/newticket

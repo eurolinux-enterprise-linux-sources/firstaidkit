@@ -1,0 +1,37 @@
+#!/bin/bash
+
+#
+# This script allows the transformation of man page tags to wiki tags.
+# This script will only include the tags used in firstaidkit and is
+# intented to help rather than create complete wiki pages.  The work
+# needed for the resulting page is very little.
+#
+DEFAULT_CHANGE_FILES="
+                firstaidkit.1
+                firstaidkitrevert.1
+                firstaidkit-flags.1
+                firstaidkit-plugin.1
+                firstaidkit-reporting.1
+                firstaidkit-backup.1
+                "
+
+#
+# Aside from the default files you can add your oun files.
+#
+CHANGE_FILES="$DEFAULT_CHANGE_FILES $*"
+
+for file in $CHANGE_FILES ; do
+    sed \
+        -e "s/\.\\\.*\\\"//" \
+        -e "s/\(^\.SH[ \t]*\"\)\([ \t^\"]*NAME[ \t^\"]*\)\(\"[ \t]*\)\(.*\)/= \4 =/" \
+        -e "s/\(^\.SH[ \t]*\"\)\([^\"]*\)\(\"[ \t]*\)\(.*\)/= \2 \4 =/" \
+        -e "s/\(^\.IP[ \t]*\"\)\([^\"]*\)\(\".*\)/[[BR]]'''\2'''[[BR]]/" \
+        -e "s/^\.br.*/[[BR]]/" \
+        -e "s/^\.BR.*/[[BR]]/" \
+        -e "s/__/!__/g" \
+        -e "s/^\.PP.*//" \
+        -e "s/^\.nf.*//" \
+        -e "s/^\.fi.*//" \
+        -e "s/^\.TH.*//" \
+        < $file > $file-wiki
+done

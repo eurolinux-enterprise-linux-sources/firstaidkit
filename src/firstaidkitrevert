@@ -1,0 +1,178 @@
+#!/usr/bin/python -tt
+# First Aid Kit - diagnostic and repair tool for Linux
+# Copyright (C) 2007 Joel Granados <jgranado@redhat.com>
+#
+# This program is free software; you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation; either version 2 of the License, or
+# (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program; if not, write to the Free Software
+# Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
+
+import getopt, sys, os, os.path, pickle, logging
+
+from pyfirstaidkit import Config
+from pyfirstaidkit import reporting
+from pyfirstaidkit import initLogger
+from pyfirstaidkit.plugins import PluginSystem
+from pyfirstaidkit.dependency import Dependencies
+from pyfirstaidkit.utils.backup import FileBackupStore
+
+def usage(name):
+    print("""Usage:
+%s [opts] <plugins>
+                        - Executes the revert function of the listed plugins.
+                          If the plugin name has a space use quotation marks
+                          ("")
+
+opts:
+    -P <path>           - add different plugin path  it can be used more than
+                          once.
+    -c <config file>    - location of the config file
+    --dir=BACK_UP_DIR   - The directory where the backups are.  The user
+                          must specify this option.
+    --all               - When "all" option is passed, revert ignores the
+                          list of plugins and tries to revert everything
+                          present in directory.
+""") % (name,)
+
+def revert(backup, plugin, report):
+    """ use the plugin revert function with the backup object stored in path.
+
+    backup - BackupPersistent object.
+    plugin - The plugin class.
+    report - the reporting object.
+    """
+
+    # We try to execute the plugin revert function.
+    try:
+        plugink = plugin.get_plugin()
+        plugink.revert(backup, report)
+    except:
+        Logger.warning("FAK Revert: An Error has occured whle executing the " \
+                "revert function for plugin %s/" % plugin)
+
+
+def findPluginIdPath(plugin):
+    pluginid = plugin.__name__.split('.')[-1:][0]
+    pluginpath = os.path.join(Config.revert.dir, pluginid)
+    if os.path.isdir(pluginpath):
+        retval = (pluginid, pluginpath)
+    else:
+
+        pluginid = plugin.getBackupId()
+        pluginpath = os.path.join(Config.revert.dir, pluginid)
+        if os.path.isdir(pluginpath):
+            retval =  (pluginid, pluginpath)
+        else:
+            Logger.warning("FAK Revert: No backup directory was found " \
+                    "for %s." % plugin.__name__)
+        retval = (None, None)
+
+        # FIXME: if there is a change of the namespace for the current
+        # plugin being different from the namespace of the same plugin
+        # but called from firstaidkit, we should include a check for this.
+
+    return retval
+
+if __name__ == "__main__":
+    try:
+        (opts, vars) = getopt.getopt(sys.argv[1:], "c:P", \
+                ["all", "dir=", "plugin-path=", "config="])
+    except Exception, e:
+        print("\nError parsing the argument line: ",e,"\n")
+        usage(sys.argv[0])
+        sys.exit(1)
+
+    for (o, val) in opts:
+        if o == "--dir":
+            if os.path.isdir(val):
+                Config.revert.dir = val
+            else:
+                print("%s is not a valid directory." % val)
+                usage(sys.argv[0])
+                sys.exit(1)
+        elif o == "--all":
+            Config.revert.all = "True"
+
+        elif o in ("-P", "--plugin-path"):
+            if not os.path.isdir(val):
+                print("%s is not a valid directory."% val)
+                usage(sys.argv[0])
+                sys.exit(1)
+            Config.set("paths", val.strip("/"), val)
+
+        elif o in ("-c", "--config"):
+            Config.read(val)
+
+
+
+    # FIXME: implement the use of quotation marks.
+    plugins = vars
+
+    if len(plugins) == 0 and Config.revert.all == "False":
+        print("You must give a list of plugins after the optiosn.  Or " \
+                "the --all options so the plugin list gets ignored.")
+        usage(sys.argv[0])
+        sys.exit(1)
+
+    if len(Config.revert.dir) == 0:
+        print("You must specify a directory.")
+        usage(sys.argv[0])
+        sys.exit(1)
+
+
+
+    # Modify the logging a little
+    Config.log.filename = "/var/log/firstaidkitrevert.log"
+    Config.log.fallbacks = \
+            "firstaidkitrevert.log,/tmp/firstaidkitrevert.log,/dev/null"
+    Config.log.method = "stdout"
+
+    # initialize log for plugin system.
+    fallbacks = Config.log.fallbacks.split(",")
+    for lfile in fallbacks:
+        try:
+            initLogger(Config)
+            break
+        except Exception, e:
+            if lfile != fallbacks[len(fallbacks)-1]:
+                Config.log.filename = lfile
+                continue
+            else:
+                print(e)
+                usage(sys.argv[0])
+                sys.exit(1)
+    Logger = logging.getLogger("firstaidkit")
+    report = reporting.Reports(maxsize = 1, round = True)
+
+    # initialize the plugin system.
+    try:
+        ps = PluginSystem(report, Dependencies())
+    except:
+        Logger.critical("FAK Revert: An error has occured while creating " \
+                "the Plugin system.")
+        sys.exit(1)
+
+    if Config.revert.all == "True":
+        plugins = ps.list()
+
+    # we execute the revert for all plugins passed by the user.
+    for plugin in plugins:
+        (id, path) = findPluginIdPath(ps._plugins[plugin])
+        if id is None or path is None:
+            Logger.warning("FAK Revert: Revert found no backup object " \
+                    "for %s" % plugin)
+        else:
+            # We create the backup persistent object bpo before passing it to
+            # the revert function.
+            bpo = FileBackupStore.BackupPersistent(id, path, reverting = True)
+            bpo.loadMeta()
+            revert(bpo, ps._plugins[plugin], report)

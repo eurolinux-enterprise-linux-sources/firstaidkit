@@ -1,0 +1,67 @@
+.\" FirstAidKit 
+.TH "FirstAidKitRevert" "1"
+.SH "NAME" FirstAidKitRevert
+.BR
+.SH "SYNOPSIS"
+firstaidkitrevert [options] <plugins>
+.br
+
+.BR
+.SH "DESCRIPTION"
+Firsaidkit has the possibility of reverting the changes made by the plugins.
+This is only possible in plugins that implement the revert functionality.
+Plugins must use persistent backup for this to happen.  From the users
+point of view the plugin will leave a directory somewhree in the directory
+tree (This directory is shown to the user at the end of firstaidkits execution)
+that can be used to change the system back to the state in which the plugin
+found it.
+
+In order to use the revert functionality you must specify the plugin you wish
+to revert and the directory in which the plugin stored its backup information.
+As stated before, the directory in which al the backedup information lies is
+shown at the end of fistatidkits execution.
+
+.PP
+.SH "OPTIONS"
+.IP "-P PATH, --plugin-path=PATH"
+Location of directories that contain plugins.
+.IP "-c PATH, config=PATH"
+Location of configuration file.
+.IP "--dir=PATH"
+This is where firstaidkit backup is located.  This is not the directory
+of individual plugins.  Rather it identifies the directory where firstaidkit
+stored all the persistent backups.
+.IP "--all"
+Indicates to firstaidkitrevert to ignore the list of plugins and revert
+all that is found on --dir
+
+.PP
+.SH "EXAMPLES"
+.IP "firstaidkitrevert -P /tmp/fakbackup/10112008_SAFQq-_/ grub"
+Reverts whatever was done in the grub plugin.  It looks for the backups in
+/tmp/fakbackup/10112008_SAFQq-_/
+
+.PP
+.SH "BUGS"
+.nf
+Please report bugs at http://fedorahosted.org/firstaidkit/newticket
+.fi
+
+.PP
+.SH "AUTHORS"
+.nf
+Martin Sivak <msivak@redhat.com>
+Joel Granados <jgranado@redhat.com>
+.fi
+
+.PP
+.SH "FILES"
+.nf
+/etc/firstaidkit.conf
+.fi
+
+.PP
+.SH "SEE ALSO"
+.nf
+http://fedorahosted.org/firstaidkit
+.fi

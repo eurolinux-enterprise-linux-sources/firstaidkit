@@ -1,0 +1,207 @@
+\documentclass[a4paper,13pt]{article}
+
+\title{Firstaidkit Explained}
+\author{Joel Andres Granados \\ jgranado@redhat.com \and Martin Sivak \\ msivak@redhat.com}
+
+\usepackage{fancyhdr}
+\usepackage{graphicx}
+\pagestyle{fancy}
+\lhead{\includegraphics[width=30mm]{../images/RHcmykeps.eps} \vspace{2mm}}
+\rhead{}
+\headsep = 30pt
+\renewcommand{\headrulewidth}{0.2pt}
+
+\begin{document}
+\maketitle
+
+\section{Use Case}
+Lets meet Joe.  He has a very healthy interest in Linux based Os's
+and has been a fedora user for some months now.  He has a very positive
+experience with his currently installed fedora 9, which was installed by his
+hacker friend named Fred.  Fred, being a very knowledgeable hacker and being
+a very good friend of Joe's, installed a stable fedora system that made Joe
+very happy.  He has had very little issues with fedora 9, and the system has
+allowed him to get his daily job done.  Joe currently studies in his hometown
+University and majors in mathematics.
+
+Sometime after receiving fedora 9 from his hacker friend, Joe gets the word
+that fedora 10 was released with a bunch of updates that might be interesting
+to him.  Being a curious and adventurous person by nature, Joe thinks its a good
+idea to upgrade his system, so he gets his hands on a fedora 10 DVD and fires up
+the upgrade process.  As usual its a very user friendly interface and after
+answering some configuration question that he does not completely understand, the
+upgrade finishes successfully.  Joe is eager to restart his laptop to begin to
+use all the wonderful updates that he had read about in fedora site.  So he
+reboots and waits impatiently for the system to come up again.
+
+Success!, fedora has upgraded to its next major release.  Joe is happier than ever.
+He is so happy that he begins to look for more information on the new release.  In
+all his searching he comes upon a site that tells him how to modify the background
+of his grub.  He has a really cool image that he thinks would look really nice at
+the grub menu.  He decides to follow the instructions on this particular site and
+see if he can make his cool idea work.  When the tutorial tells him to backup the
+first 446 bytes of his hard drive he gets mixed up and copies `dd of=/dev/zero
+of=/dev/sdb bs=1 count=446` on the command line, with root access.  He completes
+the rest of the tutorial and reboots when he thinks he is done.
+
+Joe waits a couple of minutes before realizing that the black screen with a white
+cursor at the top left is not the expected boot screen.  He feels scared because
+he does not have any other way of booting the system and all his work for the
+semester is in this particular computer.  He immediately thinks about all the
+important information that is contained inside and starts panicking.  He reboots
+the machine several times to find that the behavior does not change.  In a state
+of complete panic he calls Fred.  Fred's girlfriend picks up and says that Fred
+has gone out of the country and left his cell with her until he comes back.  But,
+Joe is not discouraged and he goes to a friends house to get on the web and try
+to find a way to fix his problem.  He spends the weekend trying to make his
+notebook boot with no success.
+
+On the following Monday he gets help from the informatics office in his university.
+They are quick to reinstall grub in his partition and make everything work again.
+They explain to Joe what happened and teach him how to fix it in case it ever happened
+again.  Joe is somewhat happy because all his information is back where he left it,
+but he is left with a very negative experience from fedora/Linux.  It would not be
+surprising for Joe to think twice next time he chooses an OS for his personal use.
+All this could have had a totally different outcome if there was a tool to fix common
+problems like this one.  A tool that automatically diagnosed and fixed Joe's problems.
+This is the type of tool we would like to present in this article.
+
+\section{What is Firstaidkit}
+Firstaidkit is an automated recovery tool that brings together common recovery processes
+and applies them to a system.  The way that Firstaidkit handles the recovery processes
+is by means of plugins.  The idea being that a plugin will focus on a particular issue
+in the system, like grub, init scripts or Xserver.  Firstaidkit is designed to automatically
+fix problems while focusing on maintaining user data integrity.  In other words, Firstaidkit
+will try its best to fix your system while maintaining your data intact.
+
+Here we can recall Joe's situation.  Lets recreate the end of the story with the only
+difference being that Joe had Firstaidkit on a rescue disk or liveCD.  Joe just
+wants his computer to boot, he knows that he somehow shot himself on the foot, but
+now he would want an easy way out.  In this case Joe may run Firstaidkit in diagnose
+mode to see what is wrong with his system.  Firstaidkit will notice the missing grub
+in the first 446 bytes of the drive and will tell Joe that he needs to fix his grub.
+After looking through the Firstaidkit man pages and searching through the plugin list,
+Joe finds that he needs to run the plugin named "grub".  He tells Firstaidkit to run
+grub in fixing mode and reboots his machine after the process ends.  He waits
+impatiently for the machine to go past the blank screen with the cursor at the top left.
+When the computer boots normally, Joe is very pleased that all his information was not
+lost and continues his daily activities.
+
+Joe's situation is just one of many in which an automated recovery tool would make
+peoples life easier.  It is not restricted to the Linux user that is a beginner
+and can be extended into administrator recovery tasks like a SELinux analysis process,
+deleted partition recovery process, init scripts recovery, rpm database recovery, etc.
+The list extends into most, if not all, the OS subsystems.
+
+But unfortunately Firstaidkit will not take care of everything.  Being a tool that
+executes common recovery processes, it needs some context from the existing system
+to actually get the fix right.  If you completely wipe out your hard drive it will
+be extremely difficult for Firstaidkit to get anything done.
+
+\section{How does Firstaidkit work?}
+Currently there are two ways of interacting with Firstaidkit: The Command Line Interface
+(CLI) and the Graphical User Interface (GUI).  Both of them have different ways of doing
+the same things, basically present the related information and provide means of executing
+plugins.  The GUI is the easiest way of interaction but also depends on lots of the
+subsystems, the Xserver being the most prominent.  But when the problem is not the X
+server, you can choose plugins, start execution, stop execution and modify various
+configuration variables from the GUI.  This way of interaction has a built in log filter
+that colors the warnings and errors accordingly to emphasize various states of the fixing
+process.  This is something that non experienced users will appreciate.  There is another
+downside to the GUI besides the dependency on the X server, its not scriptable.  There
+might be a situation where a sysadmin might want to create a general system diagnose
+script.  He may think it useful to run every time he does an update or does major changes
+on a system.  The GUI cannot aid the sysadmin in his task, but the CLI is a perfect fit
+for this kind of situation.  In summary the CLI and the GUI complement themselves and
+increase the user satisfaction for various types of users.
+
+The philosophy of Firstaidkit is to be a \textbf{fully} automated recovery system.  This
+means that once plugin execution has started there is no user interaction.  Everything
+must be specified in the configuration files, CLI or GUI.
+
+Firstaidkit can be considered a list of recovery processes used to recover default value
+behavior.  Most of the time the user will not be looking to do a full system check.  Instead
+a specific subsystem is identified as misbehaving and therefor targeted to be rescued. 
+The trick here is for the user to know how that misbehavior is referenced in Firstaidkit.
+More specifically, what subsystem it relates to.  When a machine does not boot the failure
+can be in a lot of places, but to the user its one problem: My computer does not boot.  Each
+plugin will have a diagnose that will give the user important information about current state
+and hopefully point the user in a direction where he can solve the problem or find more
+information.  When the user runs a diagnose of the systems, messages like "Your initscripts are
+busted" and "You are missing a boot loader" will hint the user of the real root of the problem.
+Moreover, if the user is using our GUI, he will be presented with red messages advising him
+of misbehaving subsystems.  This general diagnose can be the first step in the rescue process.
+
+After the general diagnose the logical next step is to actually fix something.  Firstaidkit's
+plugin based framework give the user many ways of doing this.  Each plugin is a recover process
+in itself, they can be chosen to run individually, a group of plugins can be chosen to execute
+in one run, special parameters can be given to individual plugins, some plugins can have various
+fix methods while others can be restricted to a default behavior.  The plugin framework allows
+diversity while still having a default behavior for the user that does not need custom behavior.
+To run a couple of plugins in fixing mode, the user must specify the plugins to be run, the
+initial configuration values for Firstaidkit (they are specified in a config file) and that
+all the plugins are to be run in fixing mode.
+
+After starting the plugin execution, Firstaidkit goes and does its magic.  While executing, it
+shows the user what is being done by means of a log that is redirected to stdout or a file.
+The GUI can also show the log in a very efficient way, coloring the warnings and errors in a
+matter in which the user can clearly see where stuff went wrong.  All this recollected
+information is important for the user to know what went on while Firstaidkit executed.
+Moreover it is an good source of information when Firstaidkit fails to fix things.
+
+Another nice thing about the plugin framework is the possibility of adding individual plugins
+from other sources.  Lets say your distribution does not provide the SELinux plugin that another
+distribution might have.  The only thing that needs to be done is to copy all the related
+plugin files or directories and point firstaidkit to the place where they reside.  Since they
+can be executed independently from each other there will be no interference if you run them
+individually.
+
+Some of Firstaidkit's behavior is controlled by ini style configuration files.  The system
+allows to pull any number of configuration files from various places.  It also allows the
+user to specify individual configuration values through the CLI and GUI.  This way of
+pulling configuration values from various places can get complicated, so Firstaidkit has
+the ability of printing the resulting configuration after parsing all the files.
+
+At this point you might have guessed the importance of running Firstaidkit on a damaged
+system.  This is needed because Firstaidkit will probably be used in situations where a
+healthy running system is not an option.  There are two additional ways of getting to
+Firstaidkit:
+
+\begin{itemize}
+\item Rescue image:
+To use the rescue functionality of the iso images is the most logical thing to do when
+your system is not well.  Specially if it does not boot.  Firstaidkit will be contained
+in the rescue image and can be accessed with the command line.  Note that there is no X
+in rescue mode.  This means that the only way of interacting with Firstaidkit is through
+CLI.
+\item Live CD:
+Live CD fits in really nice with the firstaidkit concept because it puts the user in a
+graphical environment without the need of a sane local system.  This gives Firstaidkit
+the opportunity to be in a place where the user can interact with its GUI.  The user can
+activate the recovery processes that he thinks are needed or just tell Firstaidkit to
+make a general scan of the system.
+\end{itemize}
+
+\section{Conclusion}
+\begin{itemize}
+  \item Firstaidkit is an automated recovery tool that brings together common recovery
+        processes.
+  \item Firstaidkit is based on a plugin backend.
+  \item Firstaidkit has a GUI and a CLI.
+  \item There are situations where having Firstaidkit is relevant.  Joe's problem just
+        being one of many examples.  It can also be used by sysadmins as a diagnose and/or
+        recovery tool.
+  \item It aids the user in precarious situations.  It ads to a good user experience.
+  \item It has no interaction with the user once it begins to execute.
+  \item It can be use to diagnose a system.  This diagnose can be performed by means of
+        scripts and/or using the GUI.
+  \item When doing the diagnose and/or fixing, it will inform the user of relative information
+        of the system and process being applied to the system.
+  \item The user can select individual plugins and execute them as preferred.
+  \item The user can execute Firstaidkit in a running system, in rescue mode, and on the liveCD.
+  \item The GUI increases the understanding of the log messages.
+  \item It is highly configurable and can handle more than one configuration source.
+  \item The inclusion of a plugin in the pool is as easy as copying the plugin file or directory.
+\end{itemize}
+
+\end{document}

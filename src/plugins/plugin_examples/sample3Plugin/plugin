@@ -1,0 +1,41 @@
+#!/bin/bash
+
+# Since this is just an example this will only have default tasks.
+TASK=""
+
+use()
+{
+    echo You are using it wrong.
+}
+
+if [ $1 ] ; then
+    if [ $2 ] ;then
+        TASK=$2
+    else
+        use
+        exit 1
+    fi
+else
+    use
+    exit 1
+fi
+
+
+if [ $TASK = "prepare" ]; then
+    echo prepare true
+fi
+if [ $TASK = "diagnose" ]; then
+    echo diagnose false
+fi
+if [ $TASK = "clean" ]; then
+    echo clean true
+fi
+if [ $TASK = "fix" ]; then
+    echo fix true
+fi
+if [ $TASK = "backup" ]; then
+    echo backup true
+fi
+if [ $TASK = "restore" ]; then
+    echo restore true
+fi
