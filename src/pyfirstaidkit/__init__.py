@@ -16,7 +16,7 @@
 # Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
 
 from interpret import Tasker
-from configuration import Config
+from configuration import Config, Info
 import logging
 import sys
 

@@ -37,6 +37,12 @@ class ReturnFalse(Return):
 class ReturnNone(Return):
     pass
 
+class ReturnBack(Return):
+    pass
+
+class ReturnAbort(Return):
+    pass
+
 #
 # The Success and Failure return classes are implemented to give a more
 # intuitive/logical approach to the default flow.  The value given to the return

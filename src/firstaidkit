@@ -19,7 +19,7 @@
 import sys, getopt, getpass, os, pprint, logging, re, readline, hashlib
 from threading import Thread
 from pyfirstaidkit import Tasker
-from pyfirstaidkit import Config
+from pyfirstaidkit import Config, Info
 from pyfirstaidkit import reporting
 from pyfirstaidkit import initLogger
 from pyfirstaidkit.errors import InvalidPluginNameException
@@ -69,15 +69,18 @@ class Output(Thread):
 
         elif message["action"]==reporting.START:
             if self._importance<=message["importance"]:
-                print("START: %s (%s)" % (message["origin"].name,
+                print("[%s] START: %s (%s)" % (message["remote_name"], message["origin"].name,
                         message["message"]))
-            self.levelstack.append(message["origin"].name)
+            if not message["remote"]:
+                self.levelstack.append(message["origin"].name)
 
         elif message["action"]==reporting.STOP:
             if self._importance<=message["importance"]:
-                print("STOP: %s (%s)" % (message["origin"].name,
+                print("[%s] STOP: %s (%s)" % (message["remote_name"], message["origin"].name,
                         message["message"]))
-            if self.levelstack[-1]!=message["origin"].name:
+            if message["remote"]:
+                pass
+            elif self.levelstack[-1]!=message["origin"].name:
                 print("WARNING: START/STOP ordering mismatch in stack: " \
                         +" / ".join(self.levelstack))
             else:
@@ -85,37 +88,37 @@ class Output(Thread):
 
         elif message["action"]==reporting.PROGRESS:
             if self._importance<=message["importance"]:
-                print("PROGRESS: %d of %d (%s)" % (message["message"][0],
+                print("[%s] PROGRESS: %d of %d (%s)" % (message["remote_name"], message["message"][0],
                         message["message"][1], message["origin"].name))
 
         elif message["action"]==reporting.INFO:
             if self._importance<=message["importance"]:
-                print("INFO: %s (%s)" % (message["message"],
+                print("[%s] INFO: %s (%s)" % (message["remote_name"], message["message"],
                         message["origin"].name))
 
         elif message["action"]==reporting.ALERT:
             if self._importance<=message["importance"]:
-                print("ALERT: %s (%s)" % (message["message"],
+                print("[%s] ALERT: %s (%s)" % (message["remote_name"], message["message"],
                         message["origin"].name))
 
         elif message["action"]==reporting.EXCEPTION:
-            print("EXCEPTION: %s (%s)" % (message["message"],
+            print("[%s] EXCEPTION: %s (%s)" % (message["remote_name"], message["message"],
                     message["origin"].name))
 
         elif message["action"]==reporting.TABLE:
             if self._importance<=message["importance"]:
-                print("TABLE %s FROM %s" % (message["title"],
+                print("[%s] TABLE %s FROM %s" % (message["remote_name"], message["title"],
                         message["origin"].name,))
                 pprint.pprint(message["message"])
 
         elif message["action"]==reporting.TREE:
             if self._importance<=message["importance"]:
-                print("TREE %s FROM %s" % (message["title"],
+                print("[%s] TREE %s FROM %s" % (message["remote_name"], message["title"],
                         message["origin"].name,))
                 pprint.pprint(message["message"])
 
         elif message["action"]==reporting.ISSUE:
-            print("ISSUE FROM %s" % (message["origin"].name,))
+            print("[%s] ISSUE FROM %s" % (message["remote_name"], message["origin"].name,))
             pprint.pprint(str(message["message"]))
         else:
             print("FIXME: Unknown message action %d!!" % (message["action"],))
@@ -158,13 +161,24 @@ class Output(Thread):
         raise AssertionError("Unsupported question type %s" % message["action"])
 
 class GuiOutput(Thread):
-    def __init__(self, cfg, tasker, dir, importance = logging.INFO,
+    def __init__(self, cfg, info, tasker, directory, importance = logging.INFO,
             *args, **kwargs):
         Thread.__init__(self, *args, **kwargs)
-        self.w = MainWindow(cfg, tasker, importance = importance, dir=dir)
+        self.cfg = cfg
+        self.info = info
+        self.tasker = tasker
+        self.dir = directory
+        self.importance = importance
+        self.remote = Config.has_section("remote") and len(Config.items("remote"))
+
 
     def run(self):
+        self.w = MainWindow(self.cfg, self.info, self.tasker, self.importance, self.dir)
+        self.w.remote(self.remote)
         self.w.run()
+
+    def update(self, mailbox, message):
+        return self.w.update(mailbox, message)
 
 def usage(name):
     print("""Usage:
@@ -369,26 +383,28 @@ if __name__=="__main__":
         outputThread = Output(singlerun.reporting(),
                               interactive = Config.operation.gui!="gtk")
         if Config.operation.gui=="gtk":
-            outputThreadGui = GuiOutput(Config, singlerun,
-                    dir = os.path.dirname(frontend_gtk.__file__))
+            outputThreadGui = GuiOutput(Config, Info, singlerun,
+                    directory = os.path.dirname(frontend_gtk.__file__))
     else:
         outputThread = Output(singlerun.reporting(), importance = 0,
                               interactive = Config.operation.gui!="gtk")
         if Config.operation.gui=="gtk":
-            outputThreadGui = GuiOutput(Config, singlerun, importance = 0,
-                    dir = os.path.dirname(frontend_gtk.__file__))
+            outputThreadGui = GuiOutput(Config, Info, singlerun, importance = 0,
+                    directory = os.path.dirname(frontend_gtk.__file__))
 
     if Config.operation.gui=="gtk":
-        singlerun.reporting().notify(outputThreadGui.w.update)
+        singlerun.reporting().notify(outputThreadGui.update)
     singlerun.reporting().notify(outputThread.process_message)
 
     print("Starting the Threads")
     #outputThread.start() #not needed, we use the callback method now
+
     if Config.operation.gui=="gtk":
         outputThreadGui.start()
+        print "GUI started"
 
     #XXX change this to detection if GUI is not used (eg. noninteractive mode)
-    if Config.operation.gui=="console":
+    elif Config.operation.gui=="console":
         print("Do the work!")
 
         # Lock the Configuration
@@ -415,13 +431,13 @@ if __name__=="__main__":
             singlerun.end()
 
     print("Waiting for the Threads")
+
     #outputThread.join() #not needed, we use the callback method now
     if Config.operation.gui=="gtk":
         outputThreadGui.join()
+        del outputThreadGui
 
     #make sure everything is deleted
-    if Config.operation.gui=="gtk":
-        del outputThreadGui
     del singlerun
 
     print("Done.")

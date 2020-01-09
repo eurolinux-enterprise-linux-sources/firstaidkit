@@ -7,7 +7,7 @@ function pause()
 }
 
 if [ "$DISPLAY" == "" ]; then
-  DIALOG="whiptail"
+  DIALOG="whiptail --fb"
 else
   DIALOG="zenity"
 fi

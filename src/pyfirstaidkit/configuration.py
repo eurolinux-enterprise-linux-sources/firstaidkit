@@ -20,6 +20,7 @@ import os
 import sys
 from cStringIO import StringIO
 from shlex import shlex
+import zipfile
 
 if os.environ.has_key("FIRST_AID_KIT_CONF"):
     cfgfile = os.environ["FIRST_AID_KIT_CONF"].split(":")
@@ -48,6 +49,7 @@ def createDefaultConfig(config):
     config.backup.fullpath = ""
     config.revert.all = "False"
     config.revert.dir = ""
+    config.system.debug = "False"
 
     # Setup a sane default root directory.
     if os.path.isdir("/mnt/sysimage"):
@@ -93,6 +95,9 @@ class FAKConfigSection(object):
 
     def unlock(self):
         self.__dict__["__use_lock"] = False
+
+    def attach(self, file, saveas = None):
+        self.__dict__["__configuration"].attach(file, saveas)
 
     def __getattr__(self, key):
         if not self.__dict__["__configuration"]. \
@@ -178,13 +183,54 @@ def getConfigBits(name, cfg = Config):
     return c
 
 class FAKInfo(ConfigParser.SafeConfigParser, FAKConfigMixIn):
+    def __init__(self, *args, **kwargs):
+        ConfigParser.SafeConfigParser.__init__(self, *args, **kwargs)
+        FAKConfigMixIn.__init__(self)
+        self._attachments = []
+        self._raw_attachments = []
+
     def write(self, fd=sys.stdout):
+        fd.write("--- Result files ---\n")
+        for f,fas in self._attachments:
+            fd.write("%s: %s\n" % (fas, f))
         fd.write("--- Info section ---\n")
         ConfigParser.SafeConfigParser.write(self, fd)
         fd.write("--------------------\n")
 
-    pass
+    def dump(self, filename):
+        fd = zipfile.ZipFile(filename, "w", zipfile.ZIP_DEFLATED)
+        temp = StringIO()
+        ConfigParser.SafeConfigParser.write(self, temp)
+        fd.writestr("results.ini", temp.getvalue())
+        for f,fas in self._attachments:
+            fd.write(f, fas)
+        for c,fas in self._raw_attachments:
+            fd.writestr(fas, c)
+        fd.close()
 
-Info = FAKInfo()
+    def attach(self, file, saveas = None):
+        if saveas is None:
+            saveas = file
+        self._attachments.append((file, saveas))
+
+    def attachRaw(self, content, saveas):
+        self._raw_attachments.append((content, saveas))
+
+
+class InfoProxy(object):
+    __slots__ = ["_obj"]
+    
+    def __init__(self, obj):
+        self._obj = obj
+
+    def __getattr__(self, name):
+        return getattr(self._obj, name)
+
+Info = InfoProxy(FAKInfo())
 Info.lock()
 
+def resetInfo():
+    global Info
+    Info._obj = FAKInfo()
+    Info.lock()
+    

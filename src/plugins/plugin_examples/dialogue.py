@@ -22,21 +22,27 @@ from pyfirstaidkit.plugins import Plugin,Flow
 from pyfirstaidkit.reporting import PLUGIN
 from pyfirstaidkit.returns import *
 from pyfirstaidkit.issue import SimpleIssue
+from pyfirstaidkit.configuration import Config
 
 class DialoguePlugin(Plugin):
     """This plugin demonstrates asking the user for information."""
     name = "DialoguePlugin"
-    version = "0.0.1"
-    author = "Miloslav Trmač"
+    version = "0.0.2"
+    author = "Miloslav Trmač & Martin Sivák"
+
     def __init__(self, *args, **kwargs):
         Plugin.__init__(self, *args, **kwargs)
         self._issue = SimpleIssue(self.name, self.description)
+
+    @classmethod
+    def getDeps(cls):
+        return set(["interactive"]).union(Plugin.getDeps())
 
     def prepare(self):
         self._issue.set(reporting = self._reporting, origin = self,
                         level = PLUGIN)
         self._result=ReturnSuccess
-
+            
     def backup(self):
         self._result=ReturnSuccess
 
@@ -45,9 +51,6 @@ class DialoguePlugin(Plugin):
 
     def diagnose(self):
         self._result=ReturnSuccess
-        self._issue.set(checked = True, happened = False,
-                        reporting = self._reporting, origin = self,
-                        level = PLUGIN)
         self._reporting.info("DialoguePlugin in diagnose task", origin = self,
                              level = PLUGIN)
         tea = self._reporting.choice_question_wait \
@@ -78,6 +81,24 @@ class DialoguePlugin(Plugin):
                                                    level = PLUGIN)
         self._reporting.info("File name: %s" % repr(s), origin = self,
                              level = PLUGIN)
+
+        config_options = [
+            ("id:1", "PL", "5", "Password length", "[1-9][0-9]*", "The length must be a valid number bigger than 0."),
+            ("id:2", "PS", "C", "Password strength", "[A-F]", "Use strength indicator A, B, C, D, E or F"),
+            ("id:3", "PL", "aA0.", "Password chars", ".*", "Any allowed characters.."),
+            ]
+
+        s = self._reporting.config_question_wait("Setup choices",
+                                                 "Set preferred values",
+                                                 config_options, origin = self,
+                                                 level = PLUGIN)
+        self._reporting.info("Options: %s" % repr(s), origin = self,
+                             level = PLUGIN)
+
+        self._issue.set(checked = True, happened = False,
+                        reporting = self._reporting, origin = self,
+                        level = PLUGIN)
+
     def fix(self):
         self._result=ReturnSuccess
 

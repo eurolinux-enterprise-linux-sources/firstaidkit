@@ -27,6 +27,7 @@ import cPickle as pickle
 import copy
 import tempfile
 import datetime
+import logging
 
 class BackupException(Exception):
     pass
@@ -69,6 +70,8 @@ class BackupStoreInterface(object):
         raise NotImplemented()
 
 class FileBackupStore(BackupStoreInterface):
+    
+    
     _singleton = None
 
     class Backup(BackupStoreInterface.Backup):
@@ -255,13 +258,15 @@ class FileBackupStore(BackupStoreInterface):
 
         if fullpath:
             if os.path.isdir(fullpath):
-                raise BackupException("Backupdir %s already exists. Erase "
-                        "dir or change backup dir." % self._path)
+                #raise BackupException("Backupdir %s already exists. Erase "
+                #        "dir or change backup dir." % fullpath)
+                #We have to be silent and use new backup 
+                fullpath = ""
             else:
                 self._path = fullpath
                 os.makedirs(fullpath)
 
-        else:
+        if not fullpath:
             if not os.path.isdir(rootpath):
                 os.makedirs(rootpath)
             timestamp = datetime.datetime.now().strftime("%Y%m%d_%H%m%S")
@@ -271,7 +276,7 @@ class FileBackupStore(BackupStoreInterface):
         self._backups = {}
 
         self.__class__._singleton = weakref.proxy(self)
-        print("Backup system initialized")
+        # print("Backup system initialized")
 
     def getBackup(self, id, persistent = False):
         if not self._backups.has_key(id):
@@ -299,10 +304,11 @@ class FileBackupStore(BackupStoreInterface):
         if backupEmpty:
             os.rmdir(self._path)
         else:
-            print("I'm keeping persistent backup spaces intact in %s" % (self._path,))
+            # print("I'm keeping persistent backup spaces intact in %s" % (self._path,))
+            pass
 
 
-        print("Backup closed")
+        # print("Backup closed")
 
     @classmethod
     def get(cls, path):

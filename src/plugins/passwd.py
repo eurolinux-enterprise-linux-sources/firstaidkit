@@ -37,7 +37,8 @@ class PasswdPlugin(Plugin):
                     Plugin.initial: {Return: "resetRoot"},
                     "resetRoot"     : {ReturnSuccess: Plugin.final}
                     }, description="Reset root password to random value so " \
-                            "the user can login and change it")
+                            "the user can login and change it",
+                    title="Reset root password")
 
     name = "Password plugin"
     version = "0.0.1"

@@ -34,13 +34,17 @@ from cStringIO import StringIO
 Logger = logging.getLogger("firstaidkit")
 
 class Flow(dict):
-    def __init__(self, rules, description="", *args, **kwargs):
+    def __init__(self, rules, description="", title="", *args, **kwargs):
         self.description = description
+        self.title = title
         dict.__init__(self, rules, *args, **kwargs)
 
     @staticmethod
-    def init(parent):
-        flows = copy(parent.flows)
+    def init(parent = None):
+        if parent:
+            flows = deepcopy(parent.flows)
+        else:
+            flows = dict()
         return flows
 
 class Plugin(object):
@@ -110,7 +114,7 @@ class Plugin(object):
 
     default_flow = "diagnose"
 
-    def __init__(self, flow, reporting, dependencies, path = None,
+    def __init__(self, flow, reporting, dependencies, interpret = None, path = None,
             backups = None, info = None, args = None):
         """ Initialize the instance.
 
@@ -129,6 +133,7 @@ class Plugin(object):
         self._backups = backups
         self._info = info
         self._args = args
+        self._interpret = interpret
 
         self.provide = dependencies.provide
         self.unprovide = dependencies.unprovide
@@ -148,6 +153,12 @@ class Plugin(object):
         # Choose the flow for the instance.
         #
         self.defineFlow(flow)
+
+    def continuing(self):
+        if self._interpret:
+            return self._interpret.continuing()
+        else:
+            return True
 
     def call(self, step):
         """call one step from plugin"""
@@ -272,7 +283,8 @@ class Plugin(object):
                         message = func+" raised "+str(e))
                 self._reporting.stop(level = TASK, origin = self,
                         message = func)
-                pass
+                if Config.system.debug == "True":
+                    raise
 
         return (self._state, self._result)
 
@@ -471,13 +483,15 @@ class PluginSystem(object):
 
     name = "Plugin System"
 
-    def __init__(self, reporting, dependencies, config=Config, backups=None):
+    def __init__(self, interpret, reporting, dependencies, config=Config, backups=None):
         self._paths = Config.paths.valueItems()
         self._backups = backups
         self._reporting = reporting
         self._reporting.start(level = PLUGINSYSTEM, origin = self)
         self._deps = dependencies
+        self._interpret = interpret
         self._plugins = {}
+        self._flow_titles = {}
 
         for path in self._paths:
             if not os.path.isdir(path):
@@ -536,11 +550,43 @@ class PluginSystem(object):
                             (m, str(e)), level = PLUGINSYSTEM, origin = self)
                 finally:
                     imp.release_lock()
+            
+        #initialize gettext
+        trans = None
+        try:
+            import gettext
+            trans = gettext.translation('firstaidkit')
+        except Exception as e:
+            pass
+            
+        #get flow titles from plugins
+        for m in self._plugins:
+            plugin = self.getplugin(m)
+            for flowname in plugin.getFlows():
+                flow = plugin.getFlow(flowname)
+                
+                #we already have title
+                if flowname in self._flow_titles and self._flow_titles[flowname]:
+                    continue
+                
+                #get best title
+                gt = trans.lgettext(flowname) if trans else flowname
+                title = gt if gt != flowname else flow.title
 
+                self._flow_titles[flowname] = title
+        
+        #set title for flow with no title
+        for flow, title in self._flow_titles.iteritems():
+            if not title:
+                self._flow_titles[flow] = flow
 
     def list(self):
         """Return the list of imported plugins"""
         return self._plugins.keys()
+        
+    def get_title(self, flow):
+        """Return flow title"""
+        return self._flow_titles[flow]
 
     def autorun(self, plugin, flow = None, dependencies = True):
         """Perform automated run of plugin with condition checking
@@ -624,7 +670,7 @@ class PluginSystem(object):
 
         infosection = getattr(Info, plugin)
         infosection.unlock()
-        p = pklass(flowName, reporting = self._reporting,
+        p = pklass(flowName, interpret = self._interpret, reporting = self._reporting,
                 dependencies = self._deps, backups = self._backups,
                 path = plugindir, info = infosection, args = " ".join(args))
         for (step, rv) in p: #autorun all the needed steps

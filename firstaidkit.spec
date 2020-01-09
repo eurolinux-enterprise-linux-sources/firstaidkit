@@ -4,9 +4,9 @@
 %define debug_package %{nil}
 
 Name:           firstaidkit
-Version:        0.2.10.2
-Release:        1%{?dist}
-Summary:        System Rescue Tool
+Version:        0.3.2
+Release:        2%{?dist}
+Summary:        System analysis and rescue tool
 
 Group:          Applications/System
 License:        GPLv2+
@@ -25,8 +25,10 @@ BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 BuildRequires:  desktop-file-utils
 BuildRequires:  python-devel
 BuildRequires:  python-setuptools-devel
+BuildRequires:  python-tools
 Requires:       newt
 Requires:       %{name}-engine
+Obsoletes:      %{name}-plugin-grub < %{version}
 
 %description
 A tool that automates simple and common system recovery tasks.
@@ -56,10 +58,9 @@ Group:          Applications/System
 Summary:        All firstaidkit plugins, and the gui
 Requires:       %{name} = %{version}-%{release}
 Requires:       %{name}-plugin-passwd
+Requires:       %{name}-plugin-freespace
 Requires:       %{name}-plugin-xserver
-%ifnarch s390 s390x ppc64 ppc sparc
-Requires:       %{name}-plugin-grub
-%endif
+Requires:       %{name}-plugin-openscap
 Requires:       %{name}-gui
 Requires:       %{name}-plugin-mdadm-conf
 Requires:       %{name}-plugin-key-recovery
@@ -82,6 +83,14 @@ BuildArch:      noarch
 %description gui
 This package contains the Gtk based FirstAidKit GUI
 
+%package plugin-freespace
+Group:          Applications/System
+Summary:        FirstAidKit plugin to check free space
+Requires:       %{name} = %{version}-%{release}
+BuildArch:      noarch
+
+%description plugin-freespace
+This FirstAidKit plugin checkes for sufficient free space on target drives.
 
 %package plugin-passwd
 Group:          Applications/System
@@ -93,6 +102,17 @@ BuildArch:      noarch
 This FirstAidKit plugin automates the recovery of the root system
 password.
 
+%package plugin-openscap
+Group:          Applications/System
+Summary:        OpenSCAP plugin for FirstAidKit
+Requires:       %{name} = %{version}-%{release}
+Requires:       openscap-python >= 0.7.2
+Requires:       openscap-content >= 0.7.2
+BuildArch:      noarch
+
+%description plugin-openscap
+This FirstAidKit plugin interfaces the OpenSCAP library, which can be used to perform a security/configuration audit of running machine.
+
 
 %package plugin-xserver
 Group:          Applications/System
@@ -103,21 +123,6 @@ BuildArch:      noarch
 %description plugin-xserver
 This FirstAidKit plugin automates the recovery of the xserver
 configuration file xorg.conf.
-
-
-%ifnarch s390 s390x ppc64 ppc sparc
-%package plugin-grub
-Group:          Applications/System
-Summary:        FirstAidKit plugin to diagnose or repair the GRUB instalation
-Requires:       %{name} = %{version}-%{release}
-Requires:       dbus-python
-Requires:       grub
-Requires:       pyparted
-
-%description plugin-grub
-This FirstAidKit plugin automates the recovery from the GRUB bootloader problems.
-%endif
-
 
 %package plugin-mdadm-conf
 Group:          Applications/System
@@ -144,8 +149,6 @@ packet.
 
 %prep
 %setup -q
-./test
-
 
 %build
 %{__python} setup.py build
@@ -155,6 +158,9 @@ packet.
 %install
 %{__rm} -rf $RPM_BUILD_ROOT
 %{__python} setup.py install -O1 --skip-build --root $RPM_BUILD_ROOT
+
+#languages
+%find_lang %{name}
 
 #docs
 %{__install} -d $RPM_BUILD_ROOT%{_mandir}/man1
@@ -174,22 +180,23 @@ packet.
 %{__install} -p frontend/*.py  $RPM_BUILD_ROOT/usr/share/firstaidkit/frontend/
 %{__install} -p frontend/*.glade  $RPM_BUILD_ROOT/usr/share/firstaidkit/frontend/
 %{__install} -p frontend/*.gladep  $RPM_BUILD_ROOT/usr/share/firstaidkit/frontend/
+%{__install} -p frontend/*.xml $RPM_BUILD_ROOT/usr/share/firstaidkit/frontend/
 %{__install} -d $RPM_BUILD_ROOT/usr/share/icons
 %{__install} -p images/FAK-bandaid.png $RPM_BUILD_ROOT/usr/share/icons/firstaidkit.png
 desktop-file-install --vendor="fedora" --dir=${RPM_BUILD_ROOT}%{_datadir}/applications %{SOURCE3}
+
+#plugins arch independent and dependent
+%{__install} -d $RPM_BUILD_ROOT/usr/share/firstaidkit/plugins
+%{__install} -d $RPM_BUILD_ROOT%{_libdir}/firstaidkit/plugins
 
 #examples
 %{__install} -d $RPM_BUILD_ROOT/usr/share/firstaidkit/plugins/examples
 %{__mv} -f plugins/plugin_examples $RPM_BUILD_ROOT/usr/share/firstaidkit/plugins/examples
 
-#plugins arch independent and dependent
-%{__install} -d $RPM_BUILD_ROOT/usr/share/firstaidkit/plugins
-%{__install} -d $RPM_BUILD_ROOT%{libdir}/firstaidkit/plugins
-
 %{__cp} -f plugins/passwd.py $RPM_BUILD_ROOT/usr/share/firstaidkit/plugins/
+%{__cp} -f plugins/freespace.py $RPM_BUILD_ROOT/usr/share/firstaidkit/plugins/
+%{__cp} -f plugins/openscap_plugin.py $RPM_BUILD_ROOT/usr/share/firstaidkit/plugins/
 %{__cp} -f plugins/xserver.py $RPM_BUILD_ROOT/usr/share/firstaidkit/plugins/
-%{__install} -d $RPM_BUILD_ROOT%{_libdir}/firstaidkit/plugins/grub
-%{__cp} -f plugins/grub/*.py $RPM_BUILD_ROOT%{_libdir}/firstaidkit/plugins/grub
 %{__cp} -f plugins/mdadm_conf.py $RPM_BUILD_ROOT/usr/share/firstaidkit/plugins/
 %{__cp} -f plugins/key_recovery.py $RPM_BUILD_ROOT/usr/share/firstaidkit/plugins/
 
@@ -212,6 +219,7 @@ desktop-file-install --vendor="fedora" --dir=${RPM_BUILD_ROOT}%{_datadir}/applic
 %{_bindir}/firstaidkit
 %{_bindir}/firstaidkit-qs
 %{_bindir}/firstaidkitrevert
+%{_bindir}/firstaidkit-shell
 %config(noreplace) %{_sysconfdir}/firstaidkit/firstaidkit.conf
 %attr(0644,root,root) %{_mandir}/man1/firstaidkit.1.gz
 %attr(0644,root,root) %{_mandir}/man5/firstaidkit.conf.5.gz
@@ -222,6 +230,7 @@ desktop-file-install --vendor="fedora" --dir=${RPM_BUILD_ROOT}%{_datadir}/applic
 %defattr(-,root,root,-)
 /usr/share/firstaidkit/frontend/*.py*
 /usr/share/firstaidkit/frontend/*.glade
+/usr/share/firstaidkit/frontend/*.xml
 /usr/share/firstaidkit/frontend/*.gladep
 /usr/share/icons/*.png
 %{_datadir}/applications/*.desktop
@@ -235,20 +244,20 @@ desktop-file-install --vendor="fedora" --dir=${RPM_BUILD_ROOT}%{_datadir}/applic
 %files plugin-all
 %defattr(-,root,root,-)
 
+%files plugin-freespace
+/usr/share/firstaidkit/plugins/freespace.py*
+
 %files plugin-passwd
 %defattr(-,root,root,-)
 /usr/share/firstaidkit/plugins/passwd.py*
 
+%files plugin-openscap
+%defattr(-,root,root,-)
+/usr/share/firstaidkit/plugins/openscap_plugin.py*
+
 %files plugin-xserver
 %defattr(-,root,root,-)
 /usr/share/firstaidkit/plugins/xserver.py*
-
-%ifnarch s390 s390x ppc64 ppc sparc
-%files plugin-grub
-%defattr(-,root,root,-)
-%{_libdir}/firstaidkit/plugins/grub/*
-%dir %{_libdir}/firstaidkit/plugins/grub
-%endif
 
 %files plugin-mdadm-conf
 %defattr(-,root,root,-)
@@ -260,13 +269,72 @@ desktop-file-install --vendor="fedora" --dir=${RPM_BUILD_ROOT}%{_datadir}/applic
 
 
 %changelog
-* Mon Jan 10 2011 Martin Sivak <msivak@redhat.com> - 0.2.10.1-2
-- Fix the manpage for the config file
-  Resolves: rhbz#584677
+* Fri Oct 14 2011 Martin Sivak <msivak@redhat.com> - 0.3.2-2
+- Added Obsolete clause as Yum cannot handle updates with removal
+  Resolves: rhbz#738563
 
-* Fri Jan 07 2011 Martin Sivak <msivak@redhat.com> - 0.2.10.1-1
-- Add manpage for the config file
-  Resolves: rhbz#584677
+* Wed Aug 03 2011 Martin Sivak <msivak@redhat.com> - 0.3.2-1
+- Removed GRUB plugin, it was a broken hack anyways
+
+* Wed Apr 20 2011 Martin Sivak <msivak@redhat.com> - 0.3.1-1
+- OpenSCAP plugin adapted to the updated OpenSCAP API
+- Big improvements to remote mode GUI usability
+
+* Tue Mar 08 2011 Martin Sivak <msivak@redhat.com> - 0.3.0-1
+- Remote mode introducted
+
+* Tue Mar 08 2011 Martin Sivak <msivak@redhat.com> - 0.2.20-3
+- move freespace plugin to it's own package
+
+* Fri Mar 04 2011 Martin Sivak <msivak@redhat.com> - 0.2.20-2
+- Add firstaidkit-shell
+
+* Fri Mar 04 2011 Martin Sivak <msivak@redhat.com> - 0.2.20-1
+- Add prototype of distributed testing feature
+
+* Tue Feb 08 2011 Fedora Release Engineering <rel-eng@lists.fedoraproject.org> - 0.2.18-2
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_15_Mass_Rebuild
+
+* Wed Nov 24 2010 Martin Sivak <msivak@redhat.com> - 0.2.18-1
+- Enhance OpenSCAP error detection
+- Require SCAP content 
+
+* Tue Sep 14 2010 Martin Sivak <msivak@redhat.com> - 0.2.17-1
+- Fix Info object resetting
+
+* Mon Sep 13 2010 Martin Sivak <msivak@redhat.com> - 0.2.16-1
+- Add more result files from OpenSCAP
+- Support skipped and error states of issues
+
+* Wed Sep 08 2010 Martin Sivak <msivak@redhat.com> - 0.2.15-2
+- Fix dependency on OpenSCAP
+- Add freespace plugin
+
+* Tue Sep 07 2010 Martin Sivak <msivak@redhat.com> - 0.2.15-1
+- Saving results
+- Improvements in OpenSCAP plugin
+
+* Tue Aug 31 2010 Martin Sivak <msivak@redhat.com> - 0.2.14-1
+- Fixes in GUI
+- Fix race condition in response passing
+- Show possible values for openscap variables
+
+* Mon Aug 30 2010 Martin Sivak <msivak@redhat.com> - 0.2.13-2
+- Require newer version of openscap library
+
+* Mon Aug 30 2010 Martin Sivak <msivak@redhat.com> - 0.2.13-1
+- Improve Config question and integrate it into OpenSCAP
+
+* Thu Aug 26 2010 Martin Sivak <msivak@redhat.com> - 0.2.12-1
+- Add OpenSCAP plugin
+
+* Wed Jul 21 2010 David Malcolm <dmalcolm@redhat.com> - 0.2.11-3
+- Rebuilt for https://fedoraproject.org/wiki/Features/Python_2.7/MassRebuild
+
+* Tue May 30 2010 Martin Sivak <msivak@redhat.com> - 0.2.11-1
+- Add missing files to configuration and docs
+- Use full sized buttons in text-mode firstaidkit-qs
+  Resolves: rhbz#576110
 
 * Mon May 22 2010 Martin Sivak <msivak@redhat.com> - 0.2.10-4
 - Add menu icon
@@ -290,7 +358,7 @@ desktop-file-install --vendor="fedora" --dir=${RPM_BUILD_ROOT}%{_datadir}/applic
 
 * Thu Jan 21 2010 Martin Sivak <msivak@redhat.com> - 0.2.8-6
 - use ifnarch for ackages section too
-  Related: rhbz#557202
+l  Related: rhbz#557202
 
 * Thu Jan 21 2010 Martin Sivak <msivak@redhat.com> - 0.2.8-5
 - ExcludeArch is global directive, use ifnarch instead

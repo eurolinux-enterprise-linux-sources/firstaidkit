@@ -154,8 +154,12 @@ if __name__ == "__main__":
     report = reporting.Reports(maxsize = 1, round = True)
 
     # initialize the plugin system.
+    class Taskr(object):
+        def continuing(self):
+            return True
+        
     try:
-        ps = PluginSystem(report, Dependencies())
+        ps = PluginSystem(report, Dependencies(), interpret = Taskr())
     except:
         Logger.critical("FAK Revert: An error has occured while creating " \
                 "the Plugin system.")

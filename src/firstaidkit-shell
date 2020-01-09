@@ -1,0 +1,179 @@
+#!/usr/bin/python -tt
+# First Aid Kit - diagnostic and repair tool for Linux
+# Copyright (C) 2007 Martin Sivak <msivak@redhat.com>
+#
+# This program is free software; you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation; either version 2 of the License, or
+# (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program; if not, write to the Free Software
+# Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
+
+import sys, getopt, os, logging, tempfile
+import cPickle as pickle
+from pyfirstaidkit import Tasker
+from pyfirstaidkit import Config, Info
+from pyfirstaidkit import reporting
+from pyfirstaidkit import initLogger
+from pyfirstaidkit.errors import InvalidPluginNameException
+from pyfirstaidkit.utils import BackupException
+from cStringIO import StringIO
+
+class Output(object):
+    _no_answer = object()
+
+    def __init__(self, rep, *args, **kwargs):
+        self._reporting = rep
+        self._objects = {}
+
+    def process_message(self, rep, message):
+        if message["action"] in (reporting.CHOICE_QUESTION,
+                                   reporting.TEXT_QUESTION,
+                                   reporting.FILENAME_QUESTION,
+                                   reporting.PASSWORD_QUESTION):
+            return
+        else:
+            pickle.dump(message, sys.stdout)
+
+class Flags:
+    main_help = False
+     
+def usage(name):
+    print("""Usage:
+ firstaidkit-shell [params]
+
+ params is none or more items from:
+  -c <config file> - location of the config file
+  -r <root path>   - location of the root directory
+  -P <path>        - add different plugin path
+                     it can be used more than once
+  -h               - help
+""")
+
+if __name__=="__main__":
+    try:
+        params, rest = getopt.getopt(sys.argv[1:], "c:r:P:h",
+                ["config=", "root=", "plugin-path=", "help"])
+    except Exception, e:
+        print("\nError parsing the argument line: ",e,"\n")
+        usage(sys.argv[0])
+        sys.exit(1)
+
+    for key,val in params:
+        #currently not implemented and not documented!
+        if key in ("-c", "--config"):
+            Config.read(val)
+
+        elif key in ("-r", "--root"):
+            Config.system.root = val
+
+        elif key in ("-P", "--plugin-path"):
+            if os.path.isdir(val):
+                Config.set("paths", val.strip("/"), val)
+
+        elif key in ("-h", "--help"):
+            Config.operation.help = "True"
+            Flags.main_help = True
+
+    if Flags.main_help:
+        usage(sys.argv[0])
+        sys.exit(1)
+
+    Config.operation.gui = "remote"
+    Config.operation.interactive = "False"
+    Config.operation.printinfo == "False"
+
+    # send welcome line
+    sys.stdout.write("[firstaidkit-shell] Ready\n")
+    sys.stdout.flush()
+
+    # read config from master
+    submitted_config = StringIO()
+    while True:
+        line = sys.stdin.readline()
+        if line=="":
+            break
+        if line=="[commit]\n":
+            break
+        if line=="[abort]\n":
+            sys.stdout.write("[firstaidkit-shell] Aborting\n")
+            sys.exit(1)
+        else:
+            submitted_config.write(line)
+    submitted_config.seek(0)
+    Config.readfp(submitted_config, "<stdin>")
+
+    # initialize log for plugin system.
+    fallbacks = Config.log.fallbacks.split(",")
+    for lfile in fallbacks:
+        try:
+            initLogger(Config)
+            break
+        except Exception, e:
+            if lfile != fallbacks[len(fallbacks)-1]:
+                Config.log.filename = lfile
+                continue
+            else:
+                print(e)
+                usage(sys.argv[0])
+                sys.exit(1)
+
+    report = reporting.Reports(maxsize = 1, silent = True)
+    try:
+        singlerun = Tasker(Config, reporting = report)
+    except BackupException, be:
+        singlerun.end()
+        print("Error: %s\n"
+               "This happens when firstaidkit end without properly closing the "
+               "backup dir. If you are sure you don't have sensitive information "
+               "in that directory, you can safely erase it.  If you are not sure, "
+               "just change the directory name.\n" % be[0])
+        sys.stdout.close()
+        sys.exit(1)
+
+    # Initialize output
+    output = Output(singlerun.reporting())
+    singlerun.reporting().notify(output.process_message)
+
+    # Lock the Configuration
+    Config.lock()
+
+    sys.stdout.write("[firstaidkit-shell] Starting\n")
+    sys.stdout.flush()
+
+    try:
+        singlerun.run()
+        singlerun.end()
+        sys.stdout.flush()
+        (fd, fpath) = tempfile.mkstemp()
+        Info.dump(fpath)
+        sys.stdout.write(file(fpath).read())
+        os.unlink(fpath)
+        sys.stdout.close()
+    except InvalidPluginNameException, ipne:
+        singlerun.end()
+        print(ipne)
+    except Exception, e:
+        singlerun.end()
+        # This is when an unexpected exception occurs.  This usally
+        # means there is a bug somewhere.
+        print("!!! The First Aid Kit crashed in very unsafe way.\n!!! "
+              "Please report this to the authors along with the "
+              "following message.  You can create a ticket at "
+              "https://fedorahosted.org/firstaidkit/newticket\n\n")
+        Config.write(sys.stdout)
+        print("Description of the error:\nError message:%s\n " \
+              "Error class %s"% (e, e.__class__))
+        sys.stdout.close()
+        raise
+
+    del output
+    del singlerun
+

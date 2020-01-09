@@ -1,0 +1,1013 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="744.09448819"
+   height="1052.3622047"
+   id="svg2"
+   sodipodi:version="0.32"
+   inkscape:version="0.46"
+   sodipodi:docname="OperationDesign.svg"
+   inkscape:output_extension="org.inkscape.output.svg.inkscape"
+   inkscape:export-filename="/home/msivak/Work/git/FirstAidKit/doc/OperationDesign.png"
+   inkscape:export-xdpi="79.585701"
+   inkscape:export-ydpi="79.585701">
+  <defs
+     id="defs4">
+    <inkscape:perspective
+       id="perspective9550"
+       inkscape:persp3d-origin="137.22692 : 76.066757 : 1"
+       inkscape:vp_z="509.27416 : 251.46046 : 1"
+       inkscape:vp_y="6.123234e-14 : 1000 : 0"
+       inkscape:vp_x="-234.82032 : 251.46046 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <marker
+       inkscape:stockid="Arrow2Mend"
+       orient="auto"
+       refY="0.0"
+       refX="0.0"
+       id="Arrow2Mend"
+       style="overflow:visible;">
+      <path
+         id="path3239"
+         style="font-size:12.0;fill-rule:evenodd;stroke-width:0.62500000;stroke-linejoin:round;"
+         d="M 8.7185878,4.0337352 L -2.2072895,0.016013256 L 8.7185884,-4.0017078 C 6.9730900,-1.6296469 6.9831476,1.6157441 8.7185878,4.0337352 z "
+         transform="scale(0.6) rotate(180) translate(0,0)" />
+    </marker>
+    <marker
+       inkscape:stockid="Arrow1Mend"
+       orient="auto"
+       refY="0.0"
+       refX="0.0"
+       id="Arrow1Mend"
+       style="overflow:visible;">
+      <path
+         id="path3221"
+         d="M 0.0,0.0 L 5.0,-5.0 L -12.5,0.0 L 5.0,5.0 L 0.0,0.0 z "
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:1.0pt;marker-start:none;"
+         transform="scale(0.4) rotate(180) translate(10,0)" />
+    </marker>
+    <marker
+       inkscape:stockid="Arrow1Mstart"
+       orient="auto"
+       refY="0.0"
+       refX="0.0"
+       id="Arrow1Mstart"
+       style="overflow:visible">
+      <path
+         id="path3218"
+         d="M 0.0,0.0 L 5.0,-5.0 L -12.5,0.0 L 5.0,5.0 L 0.0,0.0 z "
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:1.0pt;marker-start:none"
+         transform="scale(0.4) translate(10,0)" />
+    </marker>
+    <marker
+       inkscape:stockid="Arrow1Lend"
+       orient="auto"
+       refY="0.0"
+       refX="0.0"
+       id="Arrow1Lend"
+       style="overflow:visible;">
+      <path
+         id="path3215"
+         d="M 0.0,0.0 L 5.0,-5.0 L -12.5,0.0 L 5.0,5.0 L 0.0,0.0 z "
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:1.0pt;marker-start:none;"
+         transform="scale(0.8) rotate(180) translate(12.5,0)" />
+    </marker>
+    <inkscape:perspective
+       sodipodi:type="inkscape:persp3d"
+       inkscape:vp_x="-8.5714286 : 521.89538 : 1"
+       inkscape:vp_y="6.123234e-14 : 1000 : 0"
+       inkscape:vp_z="735.52305 : 521.89538 : 1"
+       inkscape:persp3d-origin="363.47581 : 346.50168 : 1"
+       id="perspective10" />
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     gridtolerance="10000"
+     guidetolerance="10"
+     objecttolerance="10"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.7"
+     inkscape:cx="218.57143"
+     inkscape:cy="516.81241"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     inkscape:window-width="1278"
+     inkscape:window-height="1022"
+     inkscape:window-x="0"
+     inkscape:window-y="0" />
+  <metadata
+     id="metadata7">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <path
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;stroke-miterlimit:4;stroke-dasharray:none;marker-end:url(#Arrow1Lend)"
+       d="M 184.28572,150.93361 L 244.28572,150.93361"
+       id="path2391"
+       inkscape:export-filename="/home/msivak/Work/git/FirstAidKit/doc/OperationDesign.png"
+       inkscape:export-xdpi="62.880001"
+       inkscape:export-ydpi="62.880001" />
+    <path
+       sodipodi:type="arc"
+       style="fill:#93caff;fill-opacity:1"
+       id="path2393"
+       sodipodi:cx="307.14285"
+       sodipodi:cy="192.36218"
+       sodipodi:rx="31.428572"
+       sodipodi:ry="31.428572"
+       d="M 338.57142,192.36218 A 31.428572,31.428572 0 1 1 275.71428,192.36218 A 31.428572,31.428572 0 1 1 338.57142,192.36218 z"
+       transform="translate(100,-41.428572)"
+       inkscape:export-filename="/home/msivak/Work/git/FirstAidKit/doc/OperationDesign.png"
+       inkscape:export-xdpi="62.880001"
+       inkscape:export-ydpi="62.880001" />
+    <path
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;marker-end:url(#Arrow1Lend);stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="M 447.42857,149.50504 L 506,149.50504"
+       id="path2395"
+       inkscape:export-filename="/home/msivak/Work/git/FirstAidKit/doc/OperationDesign.png"
+       inkscape:export-xdpi="62.880001"
+       inkscape:export-ydpi="62.880001" />
+    <path
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow1Lend);stroke-miterlimit:4;stroke-dasharray:none"
+       d="M 328.57143,150.93361 L 370,150.93361"
+       id="path2413"
+       inkscape:export-filename="/home/msivak/Work/git/FirstAidKit/doc/OperationDesign.png"
+       inkscape:export-xdpi="62.880001"
+       inkscape:export-ydpi="62.880001" />
+    <g
+       id="g3197"
+       inkscape:export-filename="/home/msivak/Work/git/FirstAidKit/doc/OperationDesign.png"
+       inkscape:export-xdpi="62.880001"
+       inkscape:export-ydpi="62.880001">
+      <rect
+         y="33.790752"
+         x="22.857143"
+         height="102.85714"
+         width="151.42857"
+         id="rect2383"
+         style="fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-opacity:1" />
+      <rect
+         y="32.362183"
+         x="21.428572"
+         height="15.714286"
+         width="154.28572"
+         id="rect3187"
+         style="fill:#67cdff;fill-opacity:1;stroke:#000000;stroke-opacity:1" />
+      <rect
+         y="58.076469"
+         x="31.428572"
+         height="11.428572"
+         width="12.857142"
+         id="rect3189"
+         style="fill:none;fill-opacity:1;stroke:#000000;stroke-opacity:1" />
+      <rect
+         y="76.171722"
+         x="31.428572"
+         height="11.428572"
+         width="12.857142"
+         id="rect3191"
+         style="fill:none;fill-opacity:1;stroke:#000000;stroke-opacity:1" />
+      <rect
+         y="112.36218"
+         x="31.428572"
+         height="11.428572"
+         width="12.857142"
+         id="rect3193"
+         style="fill:none;fill-opacity:1;stroke:#000000;stroke-opacity:1" />
+      <rect
+         y="94.266975"
+         x="31.428572"
+         height="11.428572"
+         width="12.857142"
+         id="rect3195"
+         style="fill:none;fill-opacity:1;stroke:#000000;stroke-opacity:1" />
+    </g>
+    <g
+       id="g4559"
+       inkscape:export-filename="/home/msivak/Work/git/FirstAidKit/doc/OperationDesign.png"
+       inkscape:export-xdpi="62.880001"
+       inkscape:export-ydpi="62.880001">
+      <rect
+         y="143.79076"
+         x="22.857141"
+         height="102.85714"
+         width="151.42857"
+         id="rect2385"
+         style="fill:#000000;fill-opacity:1;stroke:none;stroke-opacity:1" />
+      <text
+         id="text3205"
+         y="163.79076"
+         x="32.857143"
+         style="font-size:12px;font-style:normal;font-weight:normal;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Bitstream Vera Sans"
+         xml:space="preserve"><tspan
+           y="163.79076"
+           x="32.857143"
+           id="tspan3207"
+           sodipodi:role="line">$ ./firstaidkit -a fix_</tspan></text>
+    </g>
+    <g
+       id="g4542"
+       inkscape:export-filename="/home/msivak/Work/git/FirstAidKit/doc/OperationDesign.png"
+       inkscape:export-xdpi="62.880001"
+       inkscape:export-ydpi="62.880001">
+      <rect
+         y="258.07648"
+         x="35.714287"
+         height="78.571426"
+         width="51.42857"
+         id="rect2387"
+         style="fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-opacity:1" />
+      <text
+         id="text4502"
+         y="272.36218"
+         x="42.857143"
+         style="font-size:4px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Bitstream Vera Sans"
+         xml:space="preserve"><tspan
+           y="272.36218"
+           x="42.857143"
+           id="tspan4504"
+           sodipodi:role="line">[system]</tspan><tspan
+           id="tspan4526"
+           y="277.36218"
+           x="42.857143"
+           sodipodi:role="line">gskjgssfgsfgsfgssg</tspan><tspan
+           id="tspan4506"
+           y="282.36218"
+           x="42.857143"
+           sodipodi:role="line">sfgsfgsfgsfg</tspan><tspan
+           id="tspan4508"
+           y="287.36218"
+           x="42.857143"
+           sodipodi:role="line">sfgsfgsfgshsghdghs</tspan><tspan
+           id="tspan4510"
+           y="292.36218"
+           x="42.857143"
+           sodipodi:role="line" /><tspan
+           id="tspan4530"
+           y="297.36218"
+           x="42.857143"
+           sodipodi:role="line">[gui]</tspan><tspan
+           id="tspan4528"
+           y="302.36218"
+           x="42.857143"
+           sodipodi:role="line">sghsghsfafwthbbs</tspan><tspan
+           id="tspan4512"
+           y="307.36218"
+           x="42.857143"
+           sodipodi:role="line">athsgh asghsghsgh</tspan><tspan
+           id="tspan4514"
+           y="312.36218"
+           x="42.857143"
+           sodipodi:role="line" /><tspan
+           id="tspan4534"
+           y="317.36218"
+           x="42.857143"
+           sodipodi:role="line">[operation]</tspan><tspan
+           id="tspan4532"
+           y="322.36218"
+           x="42.857143"
+           sodipodi:role="line">sghshsfghahths</tspan><tspan
+           id="tspan4516"
+           y="327.36218"
+           x="42.857143"
+           sodipodi:role="line">shsghsgjhsthsthshs</tspan><tspan
+           id="tspan4524"
+           y="332.36218"
+           x="42.857143"
+           sodipodi:role="line" /></text>
+    </g>
+    <g
+       id="g4564"
+       transform="translate(57.142856,0.7142777)"
+       inkscape:export-filename="/home/msivak/Work/git/FirstAidKit/doc/OperationDesign.png"
+       inkscape:export-xdpi="62.880001"
+       inkscape:export-ydpi="62.880001">
+      <rect
+         y="258.07648"
+         x="35.714287"
+         height="78.571426"
+         width="51.42857"
+         id="rect4566"
+         style="fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-opacity:1" />
+      <text
+         id="text4568"
+         y="272.36218"
+         x="42.857143"
+         style="font-size:4px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Bitstream Vera Sans"
+         xml:space="preserve"><tspan
+           y="272.36218"
+           x="42.857143"
+           id="tspan4570"
+           sodipodi:role="line">[system]</tspan><tspan
+           id="tspan4572"
+           y="277.36218"
+           x="42.857143"
+           sodipodi:role="line">gskjgssfgsfgsfgssg</tspan><tspan
+           id="tspan4574"
+           y="282.36218"
+           x="42.857143"
+           sodipodi:role="line">sfgsfgsfgsfg</tspan><tspan
+           id="tspan4576"
+           y="287.36218"
+           x="42.857143"
+           sodipodi:role="line">sfgsfgsfgshsghdghs</tspan><tspan
+           id="tspan4578"
+           y="292.36218"
+           x="42.857143"
+           sodipodi:role="line" /><tspan
+           id="tspan4580"
+           y="297.36218"
+           x="42.857143"
+           sodipodi:role="line">[gui]</tspan><tspan
+           id="tspan4582"
+           y="302.36218"
+           x="42.857143"
+           sodipodi:role="line">sghsghsfafwthbbs</tspan><tspan
+           id="tspan4584"
+           y="307.36218"
+           x="42.857143"
+           sodipodi:role="line">athsgh asghsghsgh</tspan><tspan
+           id="tspan4586"
+           y="312.36218"
+           x="42.857143"
+           sodipodi:role="line" /><tspan
+           id="tspan4588"
+           y="317.36218"
+           x="42.857143"
+           sodipodi:role="line">[operation]</tspan><tspan
+           id="tspan4590"
+           y="322.36218"
+           x="42.857143"
+           sodipodi:role="line">sghshsfghahths</tspan><tspan
+           id="tspan4592"
+           y="327.36218"
+           x="42.857143"
+           sodipodi:role="line">shsghsgjhsthsthshs</tspan><tspan
+           id="tspan4594"
+           y="332.36218"
+           x="42.857143"
+           sodipodi:role="line" /></text>
+    </g>
+    <g
+       id="g9552"
+       transform="translate(84.285714,-2.8571429)"
+       inkscape:export-filename="/home/msivak/Work/git/FirstAidKit/doc/OperationDesign.png"
+       inkscape:export-xdpi="62.880001"
+       inkscape:export-ydpi="62.880001">
+      <rect
+         y="382.36218"
+         x="95.714287"
+         height="91.428574"
+         width="61.42857"
+         id="rect4596"
+         style="fill:#8de242;fill-opacity:1;stroke:#20d700;stroke-width:2;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      <rect
+         y="382.36218"
+         x="166.42856"
+         height="91.428574"
+         width="61.42857"
+         id="rect4598"
+         style="fill:#8de242;fill-opacity:1;stroke:#20d700;stroke-width:2;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      <rect
+         y="382.36218"
+         x="304.99997"
+         height="91.428574"
+         width="61.42857"
+         id="rect4602"
+         style="fill:#8de242;fill-opacity:1;stroke:#20d700;stroke-width:2;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      <rect
+         y="382.36218"
+         x="236.42856"
+         height="91.428574"
+         width="61.42857"
+         id="rect4606"
+         style="fill:#8de242;fill-opacity:1;stroke:#20d700;stroke-width:2;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      <path
+         transform="translate(6.3590671,68.723066)"
+         d="M 261.42856,362.36218 C 261.14205,361.14454 262.92857,361.37523 263.45237,361.88599 C 264.87183,363.27011 263.8315,365.54175 262.38094,366.4098 C 259.78623,367.96254 256.55396,366.3317 255.35713,363.79076 C 253.60073,360.06183 255.88838,355.75672 259.52379,354.26695 C 264.36923,352.28131 269.77844,355.24852 271.5476,359.98122 C 273.77392,365.93685 270.11736,372.46315 264.28571,374.50504 C 257.22279,376.97804 249.57271,372.62713 247.26189,365.69552 C 244.53867,357.52686 249.58682,348.74909 257.61903,346.17171 C 266.89253,343.19602 276.80049,348.94323 279.64284,358.07646 C 282.8725,368.45421 276.42502,379.49406 266.19047,382.60027 C 254.70887,386.08498 242.53593,378.93636 239.16666,367.60029 C 235.42613,355.0151 243.2765,341.70819 255.71426,338.07647"
+         sodipodi:t0="0"
+         sodipodi:argument="-20.651443"
+         sodipodi:radius="24.948927"
+         sodipodi:revolution="3"
+         sodipodi:expansion="1"
+         sodipodi:cy="362.36218"
+         sodipodi:cx="261.42856"
+         id="path4624"
+         style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         sodipodi:type="spiral" />
+      <path
+         transform="translate(-135.06951,64.43735)"
+         d="M 261.42856,362.36218 C 261.14205,361.14454 262.92857,361.37523 263.45237,361.88599 C 264.87183,363.27011 263.8315,365.54175 262.38094,366.4098 C 259.78623,367.96254 256.55396,366.3317 255.35713,363.79076 C 253.60073,360.06183 255.88838,355.75672 259.52379,354.26695 C 264.36923,352.28131 269.77844,355.24852 271.5476,359.98122 C 273.77392,365.93685 270.11736,372.46315 264.28571,374.50504 C 257.22279,376.97804 249.57271,372.62713 247.26189,365.69552 C 244.53867,357.52686 249.58682,348.74909 257.61903,346.17171 C 266.89253,343.19602 276.80049,348.94323 279.64284,358.07646 C 282.8725,368.45421 276.42502,379.49406 266.19047,382.60027 C 254.70887,386.08498 242.53593,378.93636 239.16666,367.60029 C 235.42613,355.0151 243.2765,341.70819 255.71426,338.07647"
+         sodipodi:t0="0"
+         sodipodi:argument="-20.651443"
+         sodipodi:radius="24.948927"
+         sodipodi:revolution="3"
+         sodipodi:expansion="1"
+         sodipodi:cy="362.36218"
+         sodipodi:cx="261.42856"
+         id="path4618"
+         style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         sodipodi:type="spiral" />
+      <path
+         transform="translate(-62.212368,64.437356)"
+         d="M 261.42856,362.36218 C 261.14205,361.14454 262.92857,361.37523 263.45237,361.88599 C 264.87183,363.27011 263.8315,365.54175 262.38094,366.4098 C 259.78623,367.96254 256.55396,366.3317 255.35713,363.79076 C 253.60073,360.06183 255.88838,355.75672 259.52379,354.26695 C 264.36923,352.28131 269.77844,355.24852 271.5476,359.98122 C 273.77392,365.93685 270.11736,372.46315 264.28571,374.50504 C 257.22279,376.97804 249.57271,372.62713 247.26189,365.69552 C 244.53867,357.52686 249.58682,348.74909 257.61903,346.17171 C 266.89253,343.19602 276.80049,348.94323 279.64284,358.07646 C 282.8725,368.45421 276.42502,379.49406 266.19047,382.60027 C 254.70887,386.08498 242.53593,378.93636 239.16666,367.60029 C 235.42613,355.0151 243.2765,341.70819 255.71426,338.07647"
+         sodipodi:t0="0"
+         sodipodi:argument="-20.651443"
+         sodipodi:radius="24.948927"
+         sodipodi:revolution="3"
+         sodipodi:expansion="1"
+         sodipodi:cy="362.36218"
+         sodipodi:cx="261.42856"
+         id="path4622"
+         style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         sodipodi:type="spiral" />
+      <path
+         transform="translate(76.359057,65.865926)"
+         d="M 261.42856,362.36218 C 261.14205,361.14454 262.92857,361.37523 263.45237,361.88599 C 264.87183,363.27011 263.8315,365.54175 262.38094,366.4098 C 259.78623,367.96254 256.55396,366.3317 255.35713,363.79076 C 253.60073,360.06183 255.88838,355.75672 259.52379,354.26695 C 264.36923,352.28131 269.77844,355.24852 271.5476,359.98122 C 273.77392,365.93685 270.11736,372.46315 264.28571,374.50504 C 257.22279,376.97804 249.57271,372.62713 247.26189,365.69552 C 244.53867,357.52686 249.58682,348.74909 257.61903,346.17171 C 266.89253,343.19602 276.80049,348.94323 279.64284,358.07646 C 282.8725,368.45421 276.42502,379.49406 266.19047,382.60027 C 254.70887,386.08498 242.53593,378.93636 239.16666,367.60029 C 235.42613,355.0151 243.2765,341.70819 255.71426,338.07647"
+         sodipodi:t0="0"
+         sodipodi:argument="-20.651443"
+         sodipodi:radius="24.948927"
+         sodipodi:revolution="3"
+         sodipodi:expansion="1"
+         sodipodi:cy="362.36218"
+         sodipodi:cx="261.42856"
+         id="path4626"
+         style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         sodipodi:type="spiral" />
+      <rect
+         y="405.21933"
+         x="137.85713"
+         height="91.428574"
+         width="61.42857"
+         id="rect4604"
+         style="fill:#8de242;fill-opacity:1;stroke:#20d700;stroke-width:2;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      <rect
+         y="405.21933"
+         x="206.42856"
+         height="91.428574"
+         width="61.42857"
+         id="rect4600"
+         style="fill:#8de242;fill-opacity:1;stroke:#20d700;stroke-width:2;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      <rect
+         y="405.21933"
+         x="274.99997"
+         height="91.428574"
+         width="61.42857"
+         id="rect4608"
+         style="fill:#8de242;fill-opacity:1;stroke:#20d700;stroke-width:2;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      <path
+         transform="translate(-91.428572,88.571429)"
+         d="M 261.42856,362.36218 C 261.14205,361.14454 262.92857,361.37523 263.45237,361.88599 C 264.87183,363.27011 263.8315,365.54175 262.38094,366.4098 C 259.78623,367.96254 256.55396,366.3317 255.35713,363.79076 C 253.60073,360.06183 255.88838,355.75672 259.52379,354.26695 C 264.36923,352.28131 269.77844,355.24852 271.5476,359.98122 C 273.77392,365.93685 270.11736,372.46315 264.28571,374.50504 C 257.22279,376.97804 249.57271,372.62713 247.26189,365.69552 C 244.53867,357.52686 249.58682,348.74909 257.61903,346.17171 C 266.89253,343.19602 276.80049,348.94323 279.64284,358.07646 C 282.8725,368.45421 276.42502,379.49406 266.19047,382.60027 C 254.70887,386.08498 242.53593,378.93636 239.16666,367.60029 C 235.42613,355.0151 243.2765,341.70819 255.71426,338.07647"
+         sodipodi:t0="0"
+         sodipodi:argument="-20.651443"
+         sodipodi:radius="24.948927"
+         sodipodi:revolution="3"
+         sodipodi:expansion="1"
+         sodipodi:cy="362.36218"
+         sodipodi:cx="261.42856"
+         id="path4610"
+         style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         sodipodi:type="spiral" />
+      <path
+         transform="translate(-22.212367,90.151637)"
+         d="M 261.42856,362.36218 C 261.14205,361.14454 262.92857,361.37523 263.45237,361.88599 C 264.87183,363.27011 263.8315,365.54175 262.38094,366.4098 C 259.78623,367.96254 256.55396,366.3317 255.35713,363.79076 C 253.60073,360.06183 255.88838,355.75672 259.52379,354.26695 C 264.36923,352.28131 269.77844,355.24852 271.5476,359.98122 C 273.77392,365.93685 270.11736,372.46315 264.28571,374.50504 C 257.22279,376.97804 249.57271,372.62713 247.26189,365.69552 C 244.53867,357.52686 249.58682,348.74909 257.61903,346.17171 C 266.89253,343.19602 276.80049,348.94323 279.64284,358.07646 C 282.8725,368.45421 276.42502,379.49406 266.19047,382.60027 C 254.70887,386.08498 242.53593,378.93636 239.16666,367.60029 C 235.42613,355.0151 243.2765,341.70819 255.71426,338.07647"
+         sodipodi:t0="0"
+         sodipodi:argument="-20.651443"
+         sodipodi:radius="24.948927"
+         sodipodi:revolution="3"
+         sodipodi:expansion="1"
+         sodipodi:cy="362.36218"
+         sodipodi:cx="261.42856"
+         id="path4614"
+         style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         sodipodi:type="spiral" />
+      <path
+         transform="translate(43.501917,88.723066)"
+         d="M 261.42856,362.36218 C 261.14205,361.14454 262.92857,361.37523 263.45237,361.88599 C 264.87183,363.27011 263.8315,365.54175 262.38094,366.4098 C 259.78623,367.96254 256.55396,366.3317 255.35713,363.79076 C 253.60073,360.06183 255.88838,355.75672 259.52379,354.26695 C 264.36923,352.28131 269.77844,355.24852 271.5476,359.98122 C 273.77392,365.93685 270.11736,372.46315 264.28571,374.50504 C 257.22279,376.97804 249.57271,372.62713 247.26189,365.69552 C 244.53867,357.52686 249.58682,348.74909 257.61903,346.17171 C 266.89253,343.19602 276.80049,348.94323 279.64284,358.07646 C 282.8725,368.45421 276.42502,379.49406 266.19047,382.60027 C 254.70887,386.08498 242.53593,378.93636 239.16666,367.60029 C 235.42613,355.0151 243.2765,341.70819 255.71426,338.07647"
+         sodipodi:t0="0"
+         sodipodi:argument="-20.651443"
+         sodipodi:radius="24.948927"
+         sodipodi:revolution="3"
+         sodipodi:expansion="1"
+         sodipodi:cy="362.36218"
+         sodipodi:cx="261.42856"
+         id="path4616"
+         style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         sodipodi:type="spiral" />
+    </g>
+    <rect
+       style="fill:#000000;fill-opacity:1;stroke:none;stroke-opacity:1"
+       id="rect4630"
+       width="151.42857"
+       height="102.85714"
+       x="531.42859"
+       y="158.07646"
+       inkscape:export-filename="/home/msivak/Work/git/FirstAidKit/doc/OperationDesign.png"
+       inkscape:export-xdpi="62.880001"
+       inkscape:export-ydpi="62.880001" />
+    <text
+       xml:space="preserve"
+       style="font-size:12px;font-style:normal;font-weight:normal;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Bitstream Vera Sans"
+       x="541.42859"
+       y="178.07646"
+       id="text4632"
+       inkscape:export-filename="/home/msivak/Work/git/FirstAidKit/doc/OperationDesign.png"
+       inkscape:export-xdpi="62.880001"
+       inkscape:export-ydpi="62.880001"><tspan
+         sodipodi:role="line"
+         id="tspan4634"
+         x="541.42859"
+         y="178.07646">$ ./firstaidkit -a fix_</tspan><tspan
+         sodipodi:role="line"
+         x="541.42859"
+         y="193.07646"
+         id="tspan4659">task 1 OK</tspan><tspan
+         sodipodi:role="line"
+         x="541.42859"
+         y="208.07646"
+         id="tspan4661">task 2 OK</tspan><tspan
+         sodipodi:role="line"
+         x="541.42859"
+         y="223.07646"
+         id="tspan4663">task 3 Waiting</tspan><tspan
+         sodipodi:role="line"
+         x="541.42859"
+         y="238.07646"
+         id="tspan4665">task 4 Failed</tspan></text>
+    <rect
+       style="fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-opacity:1"
+       id="rect4638"
+       width="151.42857"
+       height="102.85714"
+       x="531.42859"
+       y="44.505039"
+       inkscape:export-filename="/home/msivak/Work/git/FirstAidKit/doc/OperationDesign.png"
+       inkscape:export-xdpi="62.880001"
+       inkscape:export-ydpi="62.880001" />
+    <rect
+       style="fill:#67cdff;fill-opacity:1;stroke:#000000;stroke-opacity:1"
+       id="rect4640"
+       width="154.28572"
+       height="15.714286"
+       x="530"
+       y="43.076469"
+       inkscape:export-filename="/home/msivak/Work/git/FirstAidKit/doc/OperationDesign.png"
+       inkscape:export-xdpi="62.880001"
+       inkscape:export-ydpi="62.880001" />
+    <rect
+       style="fill:#00e242;fill-opacity:1;stroke:#000000;stroke-opacity:1"
+       id="rect4642"
+       width="12.857142"
+       height="11.428572"
+       x="540"
+       y="68.790756"
+       inkscape:export-filename="/home/msivak/Work/git/FirstAidKit/doc/OperationDesign.png"
+       inkscape:export-xdpi="62.880001"
+       inkscape:export-ydpi="62.880001" />
+    <rect
+       style="fill:#00e242;fill-opacity:1;stroke:#000000;stroke-opacity:1"
+       id="rect4644"
+       width="12.857142"
+       height="11.428572"
+       x="540"
+       y="86.886009"
+       inkscape:export-filename="/home/msivak/Work/git/FirstAidKit/doc/OperationDesign.png"
+       inkscape:export-xdpi="62.880001"
+       inkscape:export-ydpi="62.880001" />
+    <rect
+       style="fill:#ff1617;fill-opacity:1;stroke:#000000;stroke-opacity:1"
+       id="rect4646"
+       width="12.857142"
+       height="11.428572"
+       x="540"
+       y="123.07647"
+       inkscape:export-filename="/home/msivak/Work/git/FirstAidKit/doc/OperationDesign.png"
+       inkscape:export-xdpi="62.880001"
+       inkscape:export-ydpi="62.880001" />
+    <rect
+       style="fill:#0088e3;fill-opacity:1;stroke:#000000;stroke-opacity:1"
+       id="rect4648"
+       width="12.857142"
+       height="11.428572"
+       x="540"
+       y="104.98126"
+       inkscape:export-filename="/home/msivak/Work/git/FirstAidKit/doc/OperationDesign.png"
+       inkscape:export-xdpi="62.880001"
+       inkscape:export-ydpi="62.880001" />
+    <text
+       xml:space="preserve"
+       style="font-size:24;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Bitstream Vera Sans"
+       x="9.999999"
+       y="22.362183"
+       id="text5182"
+       inkscape:export-filename="/home/msivak/Work/git/FirstAidKit/doc/OperationDesign.png"
+       inkscape:export-xdpi="62.880001"
+       inkscape:export-ydpi="62.880001"><tspan
+         sodipodi:role="line"
+         id="tspan5184"
+         x="9.999999"
+         y="22.362183">Specify the task using any method</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:24px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Bitstream Vera Sans"
+       x="182.85715"
+       y="80.933609"
+       id="text5186"
+       inkscape:export-filename="/home/msivak/Work/git/FirstAidKit/doc/OperationDesign.png"
+       inkscape:export-xdpi="62.880001"
+       inkscape:export-ydpi="62.880001"><tspan
+         sodipodi:role="line"
+         id="tspan5188"
+         x="182.85715"
+         y="80.933609">Compile to Config structure</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:24px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Bitstream Vera Sans"
+       x="341.42856"
+       y="208.07648"
+       id="text5190"
+       inkscape:export-filename="/home/msivak/Work/git/FirstAidKit/doc/OperationDesign.png"
+       inkscape:export-xdpi="62.880001"
+       inkscape:export-ydpi="62.880001"><tspan
+         sodipodi:role="line"
+         id="tspan5192"
+         x="341.42856"
+         y="208.07648">Interpret</tspan><tspan
+         sodipodi:role="line"
+         x="341.42856"
+         y="238.07646"
+         id="tspan5194">the structure</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:24px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Bitstream Vera Sans"
+       x="377.14288"
+       y="293.79074"
+       id="text5196"
+       inkscape:export-filename="/home/msivak/Work/git/FirstAidKit/doc/OperationDesign.png"
+       inkscape:export-xdpi="62.880001"
+       inkscape:export-ydpi="62.880001"><tspan
+         sodipodi:role="line"
+         id="tspan5198"
+         x="377.14288"
+         y="293.79074">Send messages with results</tspan><tspan
+         sodipodi:role="line"
+         x="377.14288"
+         y="323.79074"
+         id="tspan5200">and process them in interface</tspan></text>
+    <g
+       id="g5202"
+       transform="translate(521.42857,87.499996)"
+       inkscape:export-filename="/home/msivak/Work/git/FirstAidKit/doc/OperationDesign.png"
+       inkscape:export-xdpi="62.880001"
+       inkscape:export-ydpi="62.880001">
+      <rect
+         y="258.07648"
+         x="35.714287"
+         height="78.571426"
+         width="51.42857"
+         id="rect5204"
+         style="fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-opacity:1" />
+      <text
+         id="text5206"
+         y="272.36218"
+         x="42.857143"
+         style="font-size:4px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Bitstream Vera Sans"
+         xml:space="preserve"><tspan
+           y="272.36218"
+           x="42.857143"
+           id="tspan5208"
+           sodipodi:role="line">[system]</tspan><tspan
+           id="tspan5210"
+           y="277.36218"
+           x="42.857143"
+           sodipodi:role="line">gskjgssfgsfgsfgssg</tspan><tspan
+           id="tspan5212"
+           y="282.36218"
+           x="42.857143"
+           sodipodi:role="line">sfgsfgsfgsfg</tspan><tspan
+           id="tspan5214"
+           y="287.36218"
+           x="42.857143"
+           sodipodi:role="line">sfgsfgsfgshsghdghs</tspan><tspan
+           id="tspan5216"
+           y="292.36218"
+           x="42.857143"
+           sodipodi:role="line" /><tspan
+           id="tspan5218"
+           y="297.36218"
+           x="42.857143"
+           sodipodi:role="line">[gui]</tspan><tspan
+           id="tspan5220"
+           y="302.36218"
+           x="42.857143"
+           sodipodi:role="line">sghsghsfafwthbbs</tspan><tspan
+           id="tspan5222"
+           y="307.36218"
+           x="42.857143"
+           sodipodi:role="line">athsgh asghsghsgh</tspan><tspan
+           id="tspan5224"
+           y="312.36218"
+           x="42.857143"
+           sodipodi:role="line" /><tspan
+           id="tspan5226"
+           y="317.36218"
+           x="42.857143"
+           sodipodi:role="line">[operation]</tspan><tspan
+           id="tspan5228"
+           y="322.36218"
+           x="42.857143"
+           sodipodi:role="line">sghshsfghahths</tspan><tspan
+           id="tspan5230"
+           y="327.36218"
+           x="42.857143"
+           sodipodi:role="line">shsghsgjhsthsthshs</tspan><tspan
+           id="tspan5232"
+           y="332.36218"
+           x="42.857143"
+           sodipodi:role="line" /></text>
+    </g>
+    <g
+       id="g5234"
+       transform="translate(578.57142,88.214274)"
+       inkscape:export-filename="/home/msivak/Work/git/FirstAidKit/doc/OperationDesign.png"
+       inkscape:export-xdpi="62.880001"
+       inkscape:export-ydpi="62.880001">
+      <rect
+         y="258.07648"
+         x="35.714287"
+         height="78.571426"
+         width="51.42857"
+         id="rect5236"
+         style="fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-opacity:1" />
+      <text
+         id="text5238"
+         y="272.36218"
+         x="42.857143"
+         style="font-size:4px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Bitstream Vera Sans"
+         xml:space="preserve"><tspan
+           y="272.36218"
+           x="42.857143"
+           id="tspan5240"
+           sodipodi:role="line">[system]</tspan><tspan
+           id="tspan5242"
+           y="277.36218"
+           x="42.857143"
+           sodipodi:role="line">gskjgssfgsfgsfgssg</tspan><tspan
+           id="tspan5244"
+           y="282.36218"
+           x="42.857143"
+           sodipodi:role="line">sfgsfgsfgsfg</tspan><tspan
+           id="tspan5246"
+           y="287.36218"
+           x="42.857143"
+           sodipodi:role="line">sfgsfgsfgshsghdghs</tspan><tspan
+           id="tspan5248"
+           y="292.36218"
+           x="42.857143"
+           sodipodi:role="line" /><tspan
+           id="tspan5250"
+           y="297.36218"
+           x="42.857143"
+           sodipodi:role="line">[gui]</tspan><tspan
+           id="tspan5252"
+           y="302.36218"
+           x="42.857143"
+           sodipodi:role="line">sghsghsfafwthbbs</tspan><tspan
+           id="tspan5254"
+           y="307.36218"
+           x="42.857143"
+           sodipodi:role="line">athsgh asghsghsgh</tspan><tspan
+           id="tspan5256"
+           y="312.36218"
+           x="42.857143"
+           sodipodi:role="line" /><tspan
+           id="tspan5258"
+           y="317.36218"
+           x="42.857143"
+           sodipodi:role="line">[operation]</tspan><tspan
+           id="tspan5260"
+           y="322.36218"
+           x="42.857143"
+           sodipodi:role="line">sghshsfghahths</tspan><tspan
+           id="tspan5262"
+           y="327.36218"
+           x="42.857143"
+           sodipodi:role="line">shsghsgjhsthsthshs</tspan><tspan
+           id="tspan5264"
+           y="332.36218"
+           x="42.857143"
+           sodipodi:role="line" /></text>
+    </g>
+    <text
+       xml:space="preserve"
+       style="font-size:24px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Bitstream Vera Sans"
+       x="558.57141"
+       y="459.50504"
+       id="text5266"
+       inkscape:export-filename="/home/msivak/Work/git/FirstAidKit/doc/OperationDesign.png"
+       inkscape:export-xdpi="62.880001"
+       inkscape:export-ydpi="62.880001"><tspan
+         sodipodi:role="line"
+         id="tspan5268"
+         x="558.57141"
+         y="459.50504">and logs</tspan></text>
+    <path
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;marker-start:url(#Arrow1Mstart);marker-end:url(#Arrow1Mend);stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="M 345.71428,253.79075 L 271.42857,366.6479"
+       id="path8460"
+       inkscape:export-filename="/home/msivak/Work/git/FirstAidKit/doc/OperationDesign.png"
+       inkscape:export-xdpi="62.880001"
+       inkscape:export-ydpi="62.880001" />
+    <path
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;marker-start:url(#Arrow1Mstart);marker-end:url(#Arrow1Mend);stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="M 330.57143,252.79075 L 256.28572,365.6479"
+       id="path9528"
+       inkscape:export-filename="/home/msivak/Work/git/FirstAidKit/doc/OperationDesign.png"
+       inkscape:export-xdpi="62.880001"
+       inkscape:export-ydpi="62.880001" />
+    <text
+       xml:space="preserve"
+       style="font-size:24px;font-style:normal;font-weight:normal;text-align:end;text-anchor:end;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Bitstream Vera Sans"
+       x="282.85715"
+       y="285.21936"
+       id="text9530"
+       inkscape:export-filename="/home/msivak/Work/git/FirstAidKit/doc/OperationDesign.png"
+       inkscape:export-xdpi="62.880001"
+       inkscape:export-ydpi="62.880001"><tspan
+         sodipodi:role="line"
+         id="tspan9532"
+         x="282.85715"
+         y="285.21936">call</tspan><tspan
+         sodipodi:role="line"
+         x="282.85715"
+         y="315.21936"
+         id="tspan9534">plugins</tspan></text>
+    <path
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;marker-start:url(#Arrow1Mstart);marker-mid:none;marker-end:url(#Arrow1Mend);stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="M 115.71428,460.93361 L 165.71428,460.93361"
+       id="path9568"
+       inkscape:export-filename="/home/msivak/Work/git/FirstAidKit/doc/OperationDesign.png"
+       inkscape:export-xdpi="62.880001"
+       inkscape:export-ydpi="62.880001" />
+    <text
+       xml:space="preserve"
+       style="font-size:24px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Bitstream Vera Sans"
+       x="118.57143"
+       y="526.64783"
+       id="text11169"
+       inkscape:export-filename="/home/msivak/Work/git/FirstAidKit/doc/OperationDesign.png"
+       inkscape:export-xdpi="62.880001"
+       inkscape:export-ydpi="62.880001"><tspan
+         sodipodi:role="line"
+         id="tspan11171"
+         x="118.57143"
+         y="526.64783">Pass data between plugins</tspan><tspan
+         sodipodi:role="line"
+         x="118.57143"
+         y="556.64783"
+         id="tspan11173">through the Info structure</tspan></text>
+    <g
+       id="g11183"
+       transform="translate(5.7142857,34.285714)"
+       inkscape:export-filename="/home/msivak/Work/git/FirstAidKit/doc/OperationDesign.png"
+       inkscape:export-xdpi="62.880001"
+       inkscape:export-ydpi="62.880001">
+      <g
+         inkscape:corner7="0.31531853 : 0.68023782 : 0.15863404 : 1"
+         inkscape:corner0="0.44685038 : 0.75759231 : 0 : 1"
+         inkscape:perspectiveID="#perspective9550"
+         id="g9536"
+         style="fill:#e1e242;fill-opacity:1;stroke:#d2d400;stroke-opacity:1"
+         sodipodi:type="inkscape:box3d">
+        <path
+           d="M 76.151337,403.98489 L 103.39174,371.6246 L 103.39174,424.10559 L 76.151337,452.16629 L 76.151337,403.98489 z"
+           inkscape:box3dsidetype="11"
+           style="fill:#e1e242;fill-opacity:1;fill-rule:evenodd;stroke:#d2d400;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:round;stroke-opacity:1"
+           id="path9538"
+           sodipodi:type="inkscape:box3dside" />
+        <path
+           d="M 28.036822,364.22567 L 28.036822,417.68973 L 76.151337,452.16629 L 76.151337,403.98489 L 28.036822,364.22567 z"
+           inkscape:box3dsidetype="6"
+           style="fill:#e1e242;fill-opacity:1;fill-rule:evenodd;stroke:#d2d400;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:round;stroke-opacity:1"
+           id="path9540"
+           sodipodi:type="inkscape:box3dside" />
+        <path
+           d="M 28.036822,364.22567 L 53.751108,323.98664 L 103.39174,371.6246 L 76.151337,403.98489 L 28.036822,364.22567 z"
+           inkscape:box3dsidetype="5"
+           style="fill:#e1e242;fill-opacity:1;fill-rule:evenodd;stroke:#d2d400;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:round;stroke-opacity:1"
+           id="path9542"
+           sodipodi:type="inkscape:box3dside" />
+        <path
+           d="M 28.036822,417.68973 L 53.751108,382.7971 L 103.39174,424.10559 L 76.151337,452.16629 L 28.036822,417.68973 z"
+           inkscape:box3dsidetype="13"
+           style="fill:#e1e242;fill-opacity:1;fill-rule:evenodd;stroke:#d2d400;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:round;stroke-opacity:1"
+           id="path9544"
+           sodipodi:type="inkscape:box3dside" />
+        <path
+           d="M 53.751108,323.98664 L 53.751108,382.7971 L 103.39174,424.10559 L 103.39174,371.6246 L 53.751108,323.98664 z"
+           inkscape:box3dsidetype="14"
+           style="fill:#e1e242;fill-opacity:1;fill-rule:evenodd;stroke:#d2d400;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:round;stroke-opacity:1"
+           id="path9546"
+           sodipodi:type="inkscape:box3dside" />
+        <path
+           d="M 28.036822,364.22567 L 53.751108,323.98664 L 53.751108,382.7971 L 28.036822,417.68973 L 28.036822,364.22567 z"
+           inkscape:box3dsidetype="3"
+           style="fill:#e1e242;fill-opacity:1;fill-rule:evenodd;stroke:#d2d400;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:round;stroke-opacity:1"
+           id="path9548"
+           sodipodi:type="inkscape:box3dside" />
+      </g>
+      <text
+         id="text11175"
+         y="438.07645"
+         x="50"
+         style="font-size:48px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#0000ff;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Bitstream Vera Serif;-inkscape-font-specification:Bitstream Vera Serif"
+         xml:space="preserve"><tspan
+           y="438.07645"
+           x="50"
+           id="tspan11177"
+           sodipodi:role="line">I</tspan></text>
+    </g>
+    <g
+       id="g11194"
+       inkscape:export-filename="/home/msivak/Work/git/FirstAidKit/doc/OperationDesign.png"
+       inkscape:export-xdpi="62.880001"
+       inkscape:export-ydpi="62.880001">
+      <g
+         inkscape:corner7="0.31531853 : 0.68023782 : 0.15863404 : 1"
+         inkscape:corner0="0.44685038 : 0.75759231 : 0 : 1"
+         inkscape:perspectiveID="#perspective10"
+         id="g2399"
+         style="fill:#e1e242;fill-opacity:1;stroke:#d2d400;stroke-opacity:1"
+         sodipodi:type="inkscape:box3d">
+        <path
+           d="M 296.68594,167.83568 L 323.92635,135.47539 L 323.92635,187.95638 L 296.68594,216.01709 L 296.68594,167.83568 z"
+           inkscape:box3dsidetype="11"
+           style="fill:#e1e242;fill-opacity:1;fill-rule:evenodd;stroke:#d2d400;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:round;stroke-opacity:1"
+           id="path2411"
+           sodipodi:type="inkscape:box3dside" />
+        <path
+           d="M 248.57143,128.07647 L 248.57143,181.54052 L 296.68594,216.01709 L 296.68594,167.83568 L 248.57143,128.07647 z"
+           inkscape:box3dsidetype="6"
+           style="fill:#e1e242;fill-opacity:1;fill-rule:evenodd;stroke:#d2d400;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:round;stroke-opacity:1"
+           id="path2401"
+           sodipodi:type="inkscape:box3dside" />
+        <path
+           d="M 248.57143,128.07647 L 274.28571,87.837434 L 323.92635,135.47539 L 296.68594,167.83568 L 248.57143,128.07647 z"
+           inkscape:box3dsidetype="5"
+           style="fill:#e1e242;fill-opacity:1;fill-rule:evenodd;stroke:#d2d400;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:round;stroke-opacity:1"
+           id="path2403"
+           sodipodi:type="inkscape:box3dside" />
+        <path
+           d="M 248.57143,181.54052 L 274.28571,146.6479 L 323.92635,187.95638 L 296.68594,216.01709 L 248.57143,181.54052 z"
+           inkscape:box3dsidetype="13"
+           style="fill:#e1e242;fill-opacity:1;fill-rule:evenodd;stroke:#d2d400;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:round;stroke-opacity:1"
+           id="path2409"
+           sodipodi:type="inkscape:box3dside" />
+        <path
+           d="M 274.28571,87.837434 L 274.28571,146.6479 L 323.92635,187.95638 L 323.92635,135.47539 L 274.28571,87.837434 z"
+           inkscape:box3dsidetype="14"
+           style="fill:#e1e242;fill-opacity:1;fill-rule:evenodd;stroke:#d2d400;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:round;stroke-opacity:1"
+           id="path2407"
+           sodipodi:type="inkscape:box3dside" />
+        <path
+           d="M 248.57143,128.07647 L 274.28571,87.837434 L 274.28571,146.6479 L 248.57143,181.54052 L 248.57143,128.07647 z"
+           inkscape:box3dsidetype="3"
+           style="fill:#e1e242;fill-opacity:1;fill-rule:evenodd;stroke:#d2d400;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:round;stroke-opacity:1"
+           id="path2405"
+           sodipodi:type="inkscape:box3dside" />
+      </g>
+      <text
+         id="text11179"
+         y="168.42972"
+         x="266.23383"
+         style="font-size:48px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#0000ff;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Bitstream Vera Serif;-inkscape-font-specification:Bitstream Vera Serif"
+         xml:space="preserve"><tspan
+           y="168.42972"
+           x="266.23383"
+           id="tspan11181"
+           sodipodi:role="line">C</tspan></text>
+    </g>
+  </g>
+</svg>
